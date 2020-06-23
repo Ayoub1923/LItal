@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "role": "admin",
+      "nameUser": " Admin",
+      "email": "admin@gmail.com",
+      "password": "000",
+      "id": 1
+    },
+    {
+      "role": "manager1",
+      "nameUser": " Manager1",
+      "email": "manager1@gmail.com",
+      "password": "111",
+      "id": 2
+    },
+    {
+      "role": "manager2",
+      "nameUser": " Manager2",
+      "email": "manager2@gmail.com",
+      "password": "222",
+      "id": 3
+    },
+    {
+      "role": "manager3",
+      "nameUser": " Manager3",
+      "email": "manager3@gmail.com",
+      "password": "333",
+      "id": 4
+    }
+  ]
+}
