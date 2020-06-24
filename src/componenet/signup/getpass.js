@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 import { connect } from 'react-redux'
-import { login } from '../actions/actions'
+import { getusersFromApi } from '../../action/useraction'
 import './sign.css'
 
 class GetPassword extends Component {
@@ -10,7 +10,7 @@ class GetPassword extends Component {
     forgottenPass: this.props.forgottenPass
   }
   componentDidMount() {
-    this.props.login();
+    this.props.getusersFromApi();
   }
   getPass = () => {
     this.state.forgottenPass = this.props.forgottenPass
@@ -43,7 +43,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchtoProps = (dispatch) => {
   return {
-    login: () => dispatch(login())
+    getusersFromApi: () => dispatch(getusersFromApi())
   }
 }
-export default connect(mapStateToProps, mapDispatchtoProps)(GetPassword)
+export default connect(mapStateToProps, mapDispatchtoProps)(getusersFromApi)

@@ -1,32 +1,133 @@
 {
   "users": [
     {
+      "first_name": "amanii",
+      "last_name": "BEN Salhh",
+      "email": "oussama@gmail.com",
+      "password": "123456",
+      "image": "https://semantic-ui.com/images/avatar2/large/kristy.png",
       "role": "admin",
-      "nameUser": " Admin",
-      "email": "admin@gmail.com",
-      "password": "000",
+      "posteOcuper": "Responsable production",
       "id": 1
     },
     {
-      "role": "manager1",
-      "nameUser": " Manager1",
-      "email": "manager1@gmail.com",
-      "password": "111",
+      "first_name": "manel",
+      "last_name": "boudebana",
+      "email": "oussama12@gmail.com",
+      "password": "123456",
+      "image": "https://semantic-ui.com/images/avatar2/large/kristy.png",
+      "role": "user",
+      "posteOcuper": "Responsable achat",
       "id": 2
     },
     {
-      "role": "manager2",
-      "nameUser": " Manager2",
-      "email": "manager2@gmail.com",
-      "password": "222",
+      "first_name": "manel",
+      "last_name": "bou",
+      "email": "BEN@gmail.com",
+      "password": "123456",
+      "image": "https://semantic-ui.com/images/avatar2/large/kristy.png",
+      "role": "user",
+      "posteOcuper": "Responsable achat",
+      "id": 3
+    }
+  ],
+  "ListeProduit": [
+    {
+      "name": "1",
+      "type": "23",
+      "collection": "3",
+      "marque": "4",
+      "reference": "5",
+      "image": "6",
+      "prix": "7",
+      "quantite": "18",
+      "color": "9",
+      "dateajoute": "24/06/2020",
+      "nombredemodification": 1,
+      "ok": [],
+      "id": 1,
+      "datemodification": "24/06/2020"
+    }
+  ],
+  "historique": [
+    {
+      "name": "1",
+      "type": "23",
+      "collection": "3",
+      "marque": "4",
+      "reference": "5",
+      "image": "6",
+      "prix": "7",
+      "quantite": "8",
+      "color": "9",
+      "useraction": "manel",
+      "dateaction": "24/06/2020",
+      "action": "ajoute produit",
+      "id": 1
+    },
+    {
+      "name": "1",
+      "type": "23",
+      "collection": "3",
+      "marque": "4",
+      "reference": "5",
+      "image": "6",
+      "prix": "7",
+      "quantite": "18",
+      "color": "9",
+      "useraction": "amanii",
+      "dateaction": "24/06/2020",
+      "action": "modification",
+      "id": 2
+    },
+    {
+      "name": "x",
+      "type": "x",
+      "collection": "x",
+      "marque": "x",
+      "reference": "x",
+      "image": "x",
+      "prix": "x",
+      "quantite": "x",
+      "color": "amanii",
+      "dateaction": "24/06/2020",
+      "action": "ajoute produit",
       "id": 3
     },
     {
-      "role": "manager3",
-      "nameUser": " Manager3",
-      "email": "manager3@gmail.com",
-      "password": "333",
+      "name": "x",
+      "type": "x",
+      "collection": "x",
+      "marque": "x",
+      "reference": "x",
+      "image": "http://localhost:3000/imageuplod/1593004-header.jpg",
+      "prix": "x",
+      "quantite": "x",
+      "useraction": "amanii",
+      "dateaction": "24/06/2020",
+      "action": "produit suprimer",
       "id": 4
+    }
+  ],
+  "comentair": [
+    {
+      "id": "x",
+      "iduser": "y",
+      "idproduit": "z",
+      "text": "e",
+      "date": 1202018
+    }
+  ],
+  "session": [
+    {
+      "first_name": "amanii",
+      "last_name": "BEN Salhh",
+      "email": "oussama@gmail.com",
+      "password": "123456",
+      "image": "https://semantic-ui.com/images/avatar2/large/kristy.png",
+      "role": "admin",
+      "posteOcuper": "Responsable production",
+      "id": 1
     }
   ]
 }
