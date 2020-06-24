@@ -2,7 +2,7 @@ import React,{useEffect} from "react";
 import styled from "styled-components";
 import { connect } from 'react-redux'
 import logo from  './assest/logo_lital.png'
-import {getsessionstate} from '../../action/useraction'
+import {getsessionstate,updatesessiondate} from '../../action/useraction'
 import { NavLink } from "react-router-dom";
 const NavWrapper = styled.div`
   width: 100%;
@@ -47,8 +47,10 @@ const BurgerMenu = styled.div`
 
 const Navbar = (props) => {
   const logout = () => {
-
+    let x =["","","","","","",""]
+    props.updatesessiondate(x)
     alert('byby' )
+
   
    
    
@@ -66,7 +68,7 @@ const Navbar = (props) => {
       </BurgerMenu>
       <img src={logo} alt="logo" width="100px"></img>
       <div width ="300px">
-      <NavLink to ='/'> <p style={{color:"#333"}}><img src={props.users[4] } alt="imageuser" width="60px"/> {props.users[0] + " " + props.users[1]  } <button class="ui inverted button">Log out</button></p>  </NavLink>
+      <NavLink to ='/'> <p style={{color:"#333"}}><img src={props.users[4] } alt="imageuser" width="60px"/> {props.users[0] + " " + props.users[1]  } <button class="ui inverted button" onClick={logout}>Log out</button></p>  </NavLink>
       </div>
     </NavWrapper>
   );
@@ -74,5 +76,5 @@ const Navbar = (props) => {
 const mapStateToProps = (state) => ({
   users: state.users.usersession
 });
-export default connect(mapStateToProps,{getsessionstate})(Navbar);
+export default connect(mapStateToProps,{getsessionstate,updatesessiondate})(Navbar);
 

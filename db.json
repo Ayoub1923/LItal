@@ -120,13 +120,13 @@
   ],
   "session": [
     {
-      "first_name": "amanii",
-      "last_name": "BEN Salhh",
-      "email": "oussama@gmail.com",
-      "password": "123456",
-      "image": "https://semantic-ui.com/images/avatar2/large/kristy.png",
-      "role": "admin",
-      "posteOcuper": "Responsable production",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "password": "",
+      "image": "",
+      "role": "",
+      "posteOcuper": "",
       "id": 1
     }
   ]

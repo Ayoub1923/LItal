@@ -25,19 +25,23 @@ class Sign extends Component {
      value= Object.values(users[i])
     }
     }
+       if ( id !== -1)
+       {
       if (users[id].email === this.state.address && users[id].password === this.state.password)
       { 
          this.props.updatesessiondate(value)
        console.log ("console.log",value)
-
+   
+      
+       }
       }
     
-    
-      else if  ( users[id].email !== this.state.address || users[id].password !== this.state.password || id == -1) 
+      else 
          {
           alert("non pas vrais")   
           e.preventDefault()
          }    
+        
     
     }
   
@@ -50,7 +54,8 @@ class Sign extends Component {
             <div> <input placeholder='Email' onChange={(e) => this.setState({ address: e.target.value })}></input></div>
             <div> <input type="password" placeholder='Mot de passe' onChange={(e) => this.setState({ password: e.target.value })}></input></div>
             <div className="login-access">
-            <NavLink to="/home"><button onClick={(e) => this.check(e)} className="login-button">Connexion</button></NavLink>
+
+            <NavLink to="/home"> <button onClick={(e) => this.check(e)} className="login-button">Connexion</button></NavLink>
               <NavLink to="/forgotpass" className="forgot-password" onClick={this.toggle}>Mot de passe oublié?</NavLink>
             </div>
           </div>

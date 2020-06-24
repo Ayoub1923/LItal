@@ -12,6 +12,11 @@ body {
     background-color: white;
     color: black;
 }
+.paddingmenu:active{
+    border-bottom: #fff !important;
+    font-size: medium !important;
+    color: blue !important;
+}
 
 .menuwidh:hover {
     background-color: white;
@@ -162,4 +167,11 @@ label{
     font-size: .92857143em;
     font-weight: 700;
     text-transform: none
+}
+
+.active{
+    border-bottom: #fff !important;
+    font-size: medium !important;
+    color: blue !important;
+
 }
