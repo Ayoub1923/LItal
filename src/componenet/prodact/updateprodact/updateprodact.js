@@ -6,6 +6,7 @@ import {setnewhistoriquefromapi} from '../../../action/historiquaction'
 import { Background } from "../../composant";
 import { connect } from "react-redux";
 import { Sidebar } from "../../composant";
+import { ToastContainer, toast } from 'react-toastify';
 import moment from 'moment';
  let x =""
  function Updateprodact(props) {
@@ -13,11 +14,15 @@ import moment from 'moment';
     const [isOpened, setIsOpened] = useState(false);
     const [newdata, setnew] = useState({})
     const [role, setrole] = useState("");
+    const [staselectedFilete, setselectedFile] = useState(null)
+    const mychekbox = useRef()
+    const [uncheked, setuncheked] = useState();
     const contenu = useRef()
     useEffect(() => {
     if (old !==undefined)
     {
         setnew(...old)
+        chekedcondition()
     x = old[0]
   
 setolde(x)
@@ -26,6 +31,35 @@ setolde(x)
     
       };
     }, [])
+ const chekedcondition = () => 
+{ if( mychekbox.current.checked){
+setuncheked(false)
+}
+else
+setuncheked(true)
+}
+const onChangeHandler=event=>{
+    let files = event.target.files
+     if(checkMimeType(event) ){ 
+     // si true cherger le state
+     setselectedFile(files)
+   }
+   }
+   const  checkMimeType=(event)=>{
+    let files = event.target.files 
+    let err = []
+   const types = ['image/png', 'image/jpeg', 'image/gif']
+    for(var x = 0; x<files.length; x++) {
+         if (types.every(type => files[x].type !== type)) {  
+         err[x] = files[x].type+' is not a supported format\n';
+       }
+     };
+     for(var z = 0; z<err.length; z++) {
+        toast.error(err[z])
+        event.target.value = null
+    }
+   return true;
+  }
     function unmount(){
       console.log("new date est " , newdata)
        props.updatedateprodact(old)
@@ -71,7 +105,11 @@ setolde(x)
            </div>
            <div className="Image  col-sm">
   <label className="col-sm-4">Image</label>
-      <input className="col-sm-8"  type="text" defaultValue={x.image}  onChange={(e) => newdata.image= e.target.value}  ></input>
+      {uncheked? <input className="col-sm-8"  type="text" defaultValue={x.image}  onChange={(e) => newdata.image= e.target.value}  ></input> :
+      <input  type="file" class="form-control"  onChange={onChangeHandler}/> }
+       <small>Telecharger la photo </small>       <input class="form-check-input"  ref={mychekbox} onClick={chekedcondition} type="checkbox" 
+value="" id="defaultCheck1"/>
+       
   </div>
            </div><br/>
            <div className="row">

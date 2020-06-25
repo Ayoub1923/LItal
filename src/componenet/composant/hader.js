@@ -68,7 +68,7 @@ const Navbar = (props) => {
       </BurgerMenu>
       <img src={logo} alt="logo" width="100px"></img>
       <div width ="300px">
-      <NavLink to ='/'> <p style={{color:"#333"}}><img src={props.users[4] } alt="imageuser" width="60px"/> {props.users[0] + " " + props.users[1]  } <button class="ui inverted button" onClick={logout}>Log out</button></p>  </NavLink>
+      <NavLink to ='/Login'> <p style={{color:"#333"}}><img src={props.users[4] } alt="imageuser" width="60px"/> {props.users[0] + " " + props.users[1]  } <button class="ui inverted button" onClick={logout}>Log out</button></p>  </NavLink>
       </div>
     </NavWrapper>
   );

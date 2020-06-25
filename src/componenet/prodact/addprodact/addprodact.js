@@ -37,7 +37,7 @@ function unmout()
      if(staselectedFilete !==null)
      {
       onClickHandler()
-    let name1 = Date.now().toString().substring(0,7)
+    let name1 = Date.now().toString().substring(0,6)
 
     let name2 = staselectedFilete[0].name
     image = "http://localhost:3000/imageuplod/"+name1 + "-" +name2
@@ -73,22 +73,15 @@ swal({
      
   }
   const  checkMimeType=(event)=>{
-    //getting file object
     let files = event.target.files 
-    //define message container
     let err = []
-    // list allow mime type
    const types = ['image/png', 'image/jpeg', 'image/gif']
-    // loop access array
     for(var x = 0; x<files.length; x++) {
-     // compare file type find doesn't matach
-         if (types.every(type => files[x].type !== type)) {
-         // create error message and assign to container   
+         if (types.every(type => files[x].type !== type)) {  
          err[x] = files[x].type+' is not a supported format\n';
        }
      };
-     for(var z = 0; z<err.length; z++) {// if message not same old that mean has error 
-         // discard selected file
+     for(var z = 0; z<err.length; z++) {
         toast.error(err[z])
         event.target.value = null
     }
@@ -125,20 +118,10 @@ swal({
       })
     }
  const chekedcondition = () => 
- { if( mychekbox.current.checked){
-
- //file.current.style="display: none"
- //console.log(refinput.image.style="display: block")
+ { if( mychekbox.current.checked)
  setuncheked(true)
- }
  else
- //console.log(refinput.image.style="display: none")
- //file.current.style="display: block"
-
  setuncheked(false)
-
- 
-
  }
   return (
     <div>
@@ -178,7 +161,7 @@ swal({
                   <label>image</label>
                   {uncheked ? <input ref={e => refinput.image = e} type="text" placeholder="URL IMAGE" /> :  
               <input ref={file} type="file" class="form-control"  onChange={onChangeHandler}/> }
-           <small> si tu veux telecharger la photo de l'internet clicker sur le box</small>       <input class="form-check-input"  ref={mychekbox} onClick={chekedcondition} type="checkbox" value="" id="defaultCheck1"/>
+           <small> si tu veux telecharger la photo de l'internet clicker sur le</small>       <input class="form-check-input"  ref={mychekbox} onClick={chekedcondition} type="checkbox" value="" id="defaultCheck1"/>
                  
 
                 </div>

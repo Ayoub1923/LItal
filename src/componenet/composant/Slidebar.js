@@ -19,9 +19,9 @@ const Sidebar = ({ show, setIsOpened,users,getsessionstate }) => {
             }
         } >
         < span/>
-        </CloseIcon> <div className = "paddingmenu" >
-        <NavLink to = "/Home" exact activeClassName="active" > < Linked >  👜 &emsp; Derniere Produit</Linked > </NavLink> </div > 
-        {users[5] =="admin" ? 
+        </CloseIcon> 
+         <div className = "paddingmenu" > <NavLink to = "/" exact activeClassName="active" > < Linked >  👜 &emsp; Derniere Produit</Linked > </NavLink> </div >
+        {users[6] =="admin" ? 
         <div className = "paddingmenu" ><NavLink to = "/User" exact activeClassName="active" > < Linked > < i class = "fa fa-users"
         aria-hidden = "true" > </i> &emsp; User</Linked > </NavLink> </div > 
         : null }
@@ -29,7 +29,7 @@ const Sidebar = ({ show, setIsOpened,users,getsessionstate }) => {
         <NavLink to = "/Prodact" exact activeClassName="active" > < Linked > < i class = "fa fa-shopping-bag"aria-hidden = "true" > </i>&emsp;
         Prodact </Linked></NavLink >
         </div> <div className = "paddingmenu" >
-            {users[5] =="admin" ? 
+            {users[6] =="admin" ? 
         <NavLink to = "/Historique" exact activeClassName="active" > < Linked > < i class = "fa fa-history"aria-hidden = "true" > </i>&emsp;Historique </Linked></NavLink > : null }
         </div>
 

@@ -63,7 +63,7 @@ function handleClose(){
 <td>{props.historique.collection}</td>
 <td>{props.historique.marque}</td>
 <td>{props.historique.reference}</td>
-<td>< img src={props.historique.image} alt={props.historique.id} width="100px"></img></td>
+<td>< img src={props.historique.image}  alt ={props.historique.id} width="100px"></img></td>
 <td>{props.historique.prix}</td>
 <td>{props.historique.quantite}</td>
 <td>{props.historique.color}</td>
