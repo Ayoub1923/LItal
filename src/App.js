@@ -1,16 +1,67 @@
-import React, { Component } from 'react'
-import Sign from './signup/sign'
-import { BrowserRouter, Route } from 'react-router-dom'
-import Forgotpass from './signup/forgotpass'
-export default class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <div>
-          <Route exact path="/" component={Sign} />
-          <Route exact path="/forgotpass" component={Forgotpass} />
-        </div>
-      </BrowserRouter>
-    )
-  }
+import React, { useEffect } from 'react'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { getsessionstate } from './action/useraction'
+//componenet
+import { Dashbord } from './componenet'
+import { User } from './componenet'
+import { Adduser } from './componenet'
+import { Updateuser } from './componenet'
+import Allproduct from './componenet/prodact/allproduct'
+import { Addprodact } from './componenet'
+import { Updateprodact } from './componenet'
+import { Historiquecontainer } from './componenet'
+import { Comentaire } from './componenet'
+import { Footer } from './componenet/composant'
+import { Sign } from './componenet'
+import { Forgotpass } from './componenet'
+function App(props) {
+  useEffect(() => {
+    props.getsessionstate()
+  }, [])
+  return (
+
+    <div>
+      <Router>
+        <Switch>
+          <Route exact path="/">  <Dashbord /></Route>
+          <Route exact path="/Prodact"><Allproduct /></Route>
+          <Route exact path="/update-produit"><Updateprodact /></Route>
+          <Route exact path="/Addprodact"><Addprodact /></Route>
+          <Route exact path="/comentaire"><Comentaire /></Route>
+          <Route exact path="/Login"><Sign /></Route>
+   <Route exact path="/forgotpass"><Forgotpass /></Route>
+   <Redirect to="/Login" />
+          {props.users[6] !== "admin" ? <>
+            <Route exact path="/user"><User /></Route>
+            <Route exact path="/update-user"><Updateuser /></Route>
+            <Route exact path="/Adduser"><Adduser /></Route>
+            <Route exact path="/Historique"> <Historiquecontainer /> </Route>
+          </> : null}
+       
+       
+       
+
+
+
+
+
+
+        </Switch>
+
+      </Router>
+      <Footer />
+
+    </div>
+
+  )
 }
+const mapStateToProps = (state) => ({
+  users: state.users.usersession
+});
+const mapDispatchtoProps = (dispatch) => ({
+  getsessionstate: () => dispatch(getsessionstate())
+
+
+})
+export default connect(mapStateToProps, mapDispatchtoProps)(App)
