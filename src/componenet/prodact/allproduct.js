@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { getallproductfromapi,changestateprodact,getallcomment} from '../../action/produit'
+import { getallproductfromapi,changestateprodact,filterbyquantiter} from '../../action/produit'
 import { connect } from "react-redux";
 
 /*component */
+import { Footer } from '../composant'
 import Productitem from './Productitem'
 import { Navbar } from "../composant";
 import { Background } from "../composant";
@@ -21,7 +22,6 @@ function Allproduct(props) {
   })
   useEffect(() => {
     props.getallproductfromapi()
-    props.getallcomment()
     console.log(props.stateprodact)
   }, []);
   function recherche(){
@@ -52,14 +52,23 @@ function Allproduct(props) {
   };
   let rowsPerPage = [];
   rowsPerPage = props.prod.product.slice(state.startIndex, state.endIndex + 1);
+
+ const  filterquantiter = (e) => {
+ let quantiter = e.target.value;
+ if(quantiter !== "")
+ props.filterbyquantiter(quantiter)
+ else
+ props.getallproductfromapi()
+ }
   return (
+    <>
     <div>
       <Navbar toggleMenu={setIsOpened} />
       <Background setIsOpened={setIsOpened} show={isOpened} />
       <Sidebar show={isOpened} setIsOpened={setIsOpened} />
       <div className="Content">
         <h3>Gestion des Produit Lital</h3>
-        <div className="row">
+        <div className="row dispalyflexbettwen">
           <div className="col-xs-12 box_change_pagelimit">
             Select affichage
                  <select
@@ -67,7 +76,7 @@ function Allproduct(props) {
               value={state.pageLimit}
               onChange={e =>setState({ pageLimit: parseInt(e.target.value) })
               }
-            >
+             >
               <option value={5}>5</option>
               <option value={10}>10</option>
               <option value={25}>25</option>
@@ -76,9 +85,26 @@ function Allproduct(props) {
             </select>
 
           </div>
+          <div className="col-xs-12 box_change_pagelimit">
+      Select Quantiter
+           <select
+        className="form-control"
+        value={state.quantiterstock}
+        onChange={filterquantiter
+        }
+       >
+         <option value=""> </option>
+        <option value={10}> 
+       Quantiter &gt;10 </option>
+        <option value={50}> Quantiter &lt;&#x3D; 10  &gt;50</option>
+        <option value={100}>Quantiter &lt;&#x3D; 50  &gt;100 </option>
+        <option value={200}>Quantiter &lt;&#x3D; 100  &gt;200</option>
+        <option value={300}>Quantiter &lt;&#x3D;200</option>
+      </select>
+    </div>
         </div>
         <span class="ui input">
-        <input type="text" placeholder="recherche" onChange={(e) => setinput(e.target.value)}></input><button className="ui inverted primary button colorwhite" onClick={recherche}>Recherche</button>
+        <input type="text"  className=" col-md-4"   placeholder="name,type,categorie,prix,couleur" onChange={(e) => setinput(e.target.value)}></input><button className="ui inverted primary button colorwhitee" onClick={recherche}>Recherche</button>
         </span>
         <table class="ui blue table">
           <thead>
@@ -112,8 +138,16 @@ function Allproduct(props) {
         </div>
        
       </div>
-      <p className="marginletf30"><a href="/Addprodact">  <button className="ui inverted primary button">Ajouter Nouvaux produit</button></a></p>
-    </div>
+      <p className="marginletf30"><a href="/Addprodact">  <button className="ui inverted primary button ">Ajouter Nouvaux produit</button></a></p>
+  
+     
+          </div>
+
+
+<>
+<Footer />
+</>
+</>
   )
 }
 const mapStateToProps = (state) => ({
@@ -123,7 +157,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getallproductfromapi: () => dispatch(getallproductfromapi()),
   changestateprodact:(x) => dispatch(changestateprodact(x)),
-  getallcomment:() =>dispatch(getallcomment())
+  filterbyquantiter: (x) => dispatch(filterbyquantiter(x))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Allproduct)

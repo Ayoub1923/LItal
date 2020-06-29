@@ -17,6 +17,7 @@ export const DELETEPRODUCTSTATE ="DELETEPRODUCTSTATE"
 export const ADDIDPRODUCTTOSTATE ="ADDIDPRODUCTTOSTATE"
 export const FILTERPRODUCT ="FILTERPRODUCT"
 export const GETCOMENTAIR="GETCOMENTAIR"
+export const FILTERBYQUANTITER = "FILTERBYQUANTITER"
 
 
 /*  type historique */
@@ -24,3 +25,5 @@ export const ADDISTORIQUE ="ADDISTORIQUE"
 export const GETALLHISTORIQUE ="GETALLHISTORIQUE"
 export const FILTERHISTORIQUE ="FILTERHISTORIQUE"
 export const FILTEACTION="FILTEACTION"
+export const FilterColor="FilterColor"
+export const Filterdate ="Filterdate"

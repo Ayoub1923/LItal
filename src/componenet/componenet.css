@@ -1,7 +1,4 @@
-body {
-    margin: -5px;
-    padding: -5px;
-}
+
 
 .paddingmenu {
     padding-bottom: 2px;
@@ -13,9 +10,9 @@ body {
     color: black;
 }
 .paddingmenu:active{
-    border-bottom: #fff !important;
+    border-bottom: #fff ;
     font-size: medium !important;
-    color: blue !important;
+
 }
 
 .menuwidh:hover {
@@ -59,7 +56,8 @@ body {
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
-    border-radius: .25rem;
+    border-radius: 2.25rem;
+
 }
 
 .succes {
@@ -111,7 +109,7 @@ font-size: 20px;
     width: 15px;
 }
 
-.colorwhite {
+.colorwhitee {
     color: rgb(165, 10, 102) !important;
 }
 
@@ -148,7 +146,7 @@ font-size: 20px;
 .footer {
     background: #a59891;
     height: 80px;
-    margin-top: 40px;
+    margin-top: 180px;
     padding-top: 20px;
     color: #fff;
     font-family: 'Futura Std medium';
@@ -156,6 +154,9 @@ font-size: 20px;
   left: 0;
   bottom: 0;
   width: 100%;
+}
+.margintop{
+    margin-bottom: 20px;
 }
 .ui.inverted.segment, 
 .ui.primary.inverted.segment{
@@ -174,4 +175,40 @@ label{
     font-size: medium !important;
     color: blue !important;
 
+}
+.flexevenly{
+   display: flex;
+    justify-items: center;
+  
+    align-items: center;
+   justify-items: center;
+  
+
+}
+
+.rouge{
+    color: crimson;
+  
+
+}
+
+.bagroundmenu{
+    background: url(https://image.freepik.com/photos-gratuite/concept-arriere-plan-vue-dessus-image-aerienne-concepteur-mode-placer-accessoire-couture-atelier-travail-outil-tailleur_1921-967.jpg) no-repeat center center fixed ;
+   opacity: 0.8;
+    background-size: cover;
+ 
+
+}
+.colorwhite{
+    color:white !important;
+}
+
+
+
+option:after {
+    content: "lalalal ";
+    height: 55px;
+    width: 55px;
+    border-radius: 5px;
+    display: inline-block;
 }

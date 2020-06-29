@@ -6,6 +6,7 @@ import {Navbar} from "../composant";
 import {Background} from "../composant";
 import {Sidebar} from "../composant";
 import { Pagination } from "../composant";
+import { Footer} from "../composant";
 export class User extends Component  {
     state = {
         isOpened : false,
@@ -97,7 +98,7 @@ onChangePage = data => {
     </div>
   </div>
   <div class="ui input">
-  <input type="text" placeholder="name,email,role ou poste  ocuper" onChange={(e) => this.onchange(e)}></input><button className="ui inverted primary button colorwhite" onClick={() => this.recherche()}>Recherche</button>
+  <input type="text" placeholder="name,email,role ou poste  ocuper" onChange={(e) => this.onchange(e)}></input><button className="ui inverted primary button colorwhitee" onClick={() => this.recherche()}>Recherche</button>
      </div>
        <table class="ui celled striped table">
            <thead>
@@ -135,6 +136,7 @@ onChangePage = data => {
    </div>
  
    </>
+   <Footer/>
         </div>
     )}
 }

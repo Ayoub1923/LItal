@@ -15,19 +15,20 @@ export  function getallhistoriquefromapi(){
   });
 
   //// set new historique from api
-  export  function setnewhistoriquefromapi(x,action){
+  export  function setnewhistoriquefromapi(x,user,action){
+    console.log("couleur", x.couleur)
       let paylod = x
     return (dispatch) => Axios.post(URL+"historique",({
-      "name": x[0],
-      "type":x[1] ,
-      "collection":x[2],
-      "marque":x[3],
-      "reference":x[4],
-      "image": x[5],
-      "prix":x[6],
-      "quantite":x[7],
-      "color": x[8],
-      "useraction":x[9],
+      "name": x.name,
+      "type":x.type,
+      "collection":x.collection,
+      "marque":x.marque,
+      "reference":x.reference,
+      "image": x.image,
+      "prix":x.prix,
+      "quantite":x.quantite,
+      "couleur": x.couleur,
+      "useraction":user,
       "dateaction":moment().format("DD/MM/YYYY"),
       "action":action
     })
@@ -54,4 +55,12 @@ export  function getallhistoriquefromapi(){
     type: types.FILTEACTION,
     paylod,
 
+  })
+  export const filtercolor =(paylod) => ({
+   type : types.FilterColor,
+   paylod,
+  })
+  export const Filterdate =(paylod) => ({
+    type : types.Filterdate,
+    paylod,
   })

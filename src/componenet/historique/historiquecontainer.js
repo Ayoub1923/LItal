@@ -1,16 +1,21 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useRef,createRef} from 'react'
 import {connect} from 'react-redux'
-import { Navbar } from "../composant";
+import {Navbar, Footer} from "../composant";
 import { Background } from "../composant";
 import { Pagination } from "../composant";
 import { Sidebar } from "../composant";
-import {getallhistoriquefromapi ,changestatehistorique,filteraction} from '../../action/historiquaction'
+import {getallhistoriquefromapi ,changestatehistorique,filteraction,filtercolor,Filterdate} from '../../action/historiquaction'
 import Historiqueitem from './historiqueitem'
+let tabcolor = []
+let tabdate = []
  function Historiquecontainer(props) {
     const [isOpened, setIsOpened] = useState(false);
     const [input, setinput] = useState("");
     const [filter_key, set_filter_key] = useState("");
     const [historie, hostorieState] =  useState([])
+  
+    const [user,setuser]= useState([... new Set(props.hist.map( el => el.couleur))])
+  let  select = useRef();
     const [state, setState] = useState({
       totalRecords: "",
       totalPages: "",
@@ -21,8 +26,20 @@ import Historiqueitem from './historiqueitem'
     })
     useEffect(() => {
         props.getallhistoriquefromapi()
-        
+      
       }, []);
+      useEffect(() => {
+        let x =[... new Set(props.hist.map( el => el.couleur))]
+        setuser(x)
+   console.log( "resived",x)
+
+
+
+   
+    
+   
+        
+      }, [props.hist])
 
 
 
@@ -72,8 +89,52 @@ import Historiqueitem from './historiqueitem'
       };
       let rowsPerPage = [];
       rowsPerPage = props.hist.slice(state.startIndex, state.endIndex + 1);
+      tabcolor = props.hist.map( el => el.couleur) // de state ver tableux
+      tabcolor = [...new Set(tabcolor)]  // effacer les valueur repeter tabcolor 
+     
+     if( user.length > 0 )
+     { document.getElementById("mohamed").style.backgroundColor="red" 
+     
+     for ( let i=0 ; i<user.length;i++){
+        
+        console.log(select)
+      }
+    }
+      console.log(user)
+      tabdate = props.hist.map( el => el.dateaction) 
+      tabdate = [...new Set(tabdate)] 
+      const filtercolor = (e) => {
+      let x= e.target.value 
+      setTimeout(() => {
+        console.log(x)
+       
+      if (x !== "")
+      { 
+       //let  resulta =  props.hist.filter( (el,i) => el.couleur == x)
+        props.filtercolor(x)
+      }
+      if (x==="")
+     
+        props.getallhistoriquefromapi()
+      })
+    }
+ const filterdate= (e) => {
+   let x = e.target.value;
+   if (x !== ""){
+
+     props.Filterdate(x)
+   }
+   else
+   props.getallhistoriquefromapi()
+ }
     return (
+
         <>
+        <br/><br/><br/>
+     <select>
+       <option style={{backgroundColor:"red"}}>1</option>
+       <option>2</option>
+     </select>
   <Navbar toggleMenu={setIsOpened} />
   <Background setIsOpened={setIsOpened} show={isOpened} />
   <Sidebar show={isOpened} setIsOpened={setIsOpened} />
@@ -109,12 +170,37 @@ import Historiqueitem from './historiqueitem'
      <option value="Ajouter">Ajouter</option>
      <option value="Modifier">Modifier</option>
      <option value="suprimer">suprimer</option>
+     <option value="commentaire">ajouter comentaire</option>
    </select>
+   <select   onChange={filtercolor} >
+   <option value="couleur"> couleur</option>
+   <option value="">all </option>
+    {tabcolor.map((item, key) =>   item ?
+      <option key={key} value={item} type="color"  ref={select} id="mohamed">{item} </option> : null
+    )
+    
+  
+  
+    })
+
+</select>
+
+ <select onChange={filterdate} >
+<option value="">date</option>
+<option value="">all</option>
+{tabdate.map((item,key) => <option key={key} value={item}>{item}</option>)}
+
+
+ </select>
+
+
+
+      
  </div>
  </div>
   </div>
   <span class="ui input">
-  <input type="text" placeholder="user,date,prix,color,REF"    onChange={(e) => onchange(e)}></input><button className="ui inverted primary button colorwhite" onClick={recherche}>Recherche</button>
+  <input type="text" placeholder="user,type,prix,color,REF"    onChange={(e) => onchange(e)}></input><button className="ui inverted primary button colorwhitee" onClick={recherche}>Recherche</button>
 </span>
 
   <table class="ui blue table">
@@ -151,6 +237,7 @@ import Historiqueitem from './historiqueitem'
     </div>
  
        </div>
+       <Footer/>
         </>
     )
 }
@@ -160,7 +247,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     getallhistoriquefromapi: () => dispatch(getallhistoriquefromapi()),
     changestatehistorique : (x) => dispatch(changestatehistorique(x)),
-    filteraction :(x) => dispatch(filteraction(x))
+    filteraction :(x) => dispatch(filteraction(x)),
+    filtercolor : (x) => dispatch(filtercolor(x)),
+    Filterdate : (x) => dispatch(Filterdate(x))
   })
 
 export default connect(mapStateToProps,mapDispatchToProps)(Historiquecontainer)
