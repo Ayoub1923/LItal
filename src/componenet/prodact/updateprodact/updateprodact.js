@@ -21,6 +21,7 @@ import moment from 'moment';
     const [staselectedFilete, setselectedFile] = useState(null)
     const mychekbox = useRef()
     const [uncheked, setuncheked] = useState();
+    const alertref= useRef("none")
     const contenu = useRef()
     useEffect(() => {
       setid(urlid.slice(1, urlid.length))
@@ -109,6 +110,8 @@ const onChangeHandler=event=>{
   }
   // unmout componenet and send to action
     function unmount(){
+      if(old[0].name !== "" &&  old[0].type !== "" && old[0].prix!=="" && old[0].couleur!=="" )
+      {
       if(staselectedFilete !==null)
       {
      let name1 = Date.now().toString().substring(0,4)
@@ -124,7 +127,7 @@ const onChangeHandler=event=>{
      setTimeout(() => {
       props.updatedateprodact(old[0],image)
      
-      props.setnewhistoriquefromapi(old,props.users[0],"modification")
+      props.setnewhistoriquefromapi(old[0],props.users[0],"modification")
     }, 1000);
 
      
@@ -132,6 +135,9 @@ const onChangeHandler=event=>{
         contenu.current.innerHTML= "<div><h1> Votre Donner A eté modifier avec Succeé<h1></div>"
 
     }
+    else
+    alertref.current.style='display: block'
+  }
     //uplod iimage to server
     const onClickHandler = () => {
       const data = new FormData()
@@ -163,7 +169,17 @@ const onChangeHandler=event=>{
    <Sidebar show={isOpened} setIsOpened={setIsOpened} />
    <div className="Content" ref={contenu}>
      {console.log("produit "  , old)}
+     <div  ref ={alertref} class="alert alert-warning alert-dismissible fade show" 
+role="alert">
+ <strong>notifiaction!</strong> Merci de remplire tous les champs obligatoire <span span 
+className="rouge">*</span>
+ <button type="button" class="close" data-dismiss="alert" onClick={() => alertref.
+current.style='display:none'} aria-label="Close">
+   <span aria-hidden="true">&times;</span>
+ </button>
+ </div> 
    {old.length > 0 ?  <>
+
     <h3 className="centre-item"> Modifier de produit Numero  {old[0].id}</h3>
     <div class="form-group">
   <ToastContainer />
@@ -173,11 +189,11 @@ const onChangeHandler=event=>{
            <div className="ui inverted segment">
        <div  className="row">
            <div className="Name col-sm">
-               <label className="col-sm-4">Name</label>
+               <label className="col-sm-4">Name</label><span className="rouge">* </span>
                <input  className="col-sm-8" Value={old[0].name} type="text" onChange={(e) => old[0].name= e.target.value}></input>
            </div>
            <div className="Name col-sm">
-           <label className="col-sm-4" >Type</label>
+           <label className="col-sm-4" >Type</label><span className="rouge">* </span>
            
                <input className="col-sm-8" type="text" Value={old[0].type}  onChange={(e) => old[0].type= e.target.value}></input>
            </div>
@@ -193,7 +209,7 @@ const onChangeHandler=event=>{
                <input  className="col-sm-8" type="text" Value={old[0].marque}  onChange={(e) => old[0].marque= e.target.value} ></input>
            </div>
            <div className="Reference  col-sm">
-           <label className="col-sm-4">Reference</label>
+           <label className="col-sm-4">Reference</label><span className="rouge">* </span>
                <input className="col-sm-8"  type="text" defaultValue={old[0].reference}  onChange={(e) => old[0].reference = e.target.value}  ></input>
            </div>
            <div className="Image  col-sm">
@@ -207,15 +223,15 @@ const onChangeHandler=event=>{
            </div><br/>
            <div className="row">
     <div className="col-sm-4">
-      <label className="col-sm-4" >Prix</label>
+      <label className="col-sm-4" >Prix</label><span className="rouge">* </span>
         <input className="col-sm-8" defaultValue={old[0].prix}  type="text" onChange={(e) => old[0].prix= e.target.value} />
     </div>
     <div class="col-sm-4">
-      <label className="col-sm-4">Quantiter</label>
+      <label className="col-sm-4">Quantiter</label><span className="rouge">* </span>
        <input  className="col-sm-8" defaultValue={old[0].quantite}  type="number"  onChange={(e) => old[0].quantite= e.target.value}/>
     </div>
     <div class="col-sm-4">
-      <label className="col-sm-4">Couleur</label>
+      <label className="col-sm-4">Couleur</label><span className="rouge">* </span>
        <input className="col-sm-8"  defaultValue={old[0].couleur}   type="color" onChange={(e) => old[0].couleur= e.target.value} />
     </div>
   </div>

@@ -17,7 +17,6 @@ function AddUsers(props) {
     password: null,
     ocuperpost: null,
     role: null,
-    ocuperpost: null,
 
 
 
@@ -73,7 +72,7 @@ function AddUsers(props) {
         <div ref={alertref} class="alert alert-warning alert-dismissible fade show"
           role="alert">
           <strong>notifiaction!</strong> Merci de remplire tous les champs obligatoire
-     <span span className="rouge">*</span>
+     <span className="rouge">*</span>
           <button type="button" class="close" data-dismiss="alert" onClick={() =>
             alertref.current.style = 'display:none'} aria-label="Close">
             <span aria-hidden="true">&times;</span>

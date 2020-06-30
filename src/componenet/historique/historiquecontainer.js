@@ -130,11 +130,7 @@ let tabdate = []
     return (
 
         <>
-        <br/><br/><br/>
-     <select>
-       <option style={{backgroundColor:"red"}}>1</option>
-       <option>2</option>
-     </select>
+        
   <Navbar toggleMenu={setIsOpened} />
   <Background setIsOpened={setIsOpened} show={isOpened} />
   <Sidebar show={isOpened} setIsOpened={setIsOpened} />

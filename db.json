@@ -31,29 +31,21 @@
       "role": "moderateur",
       "dateInscription": "26/06/2020",
       "id": 4
-    },
-    {
-      "first_name": "",
-      "last_name": "",
-      "email": "",
-      "password": "",
-      "image": "",
-      "id": 5
     }
   ],
   "ListeProduit": [
     {
-      "name": "v",
-      "type": "vfd",
+      "name": "kkkk",
+      "type": "jjjjj",
       "collection": "v2",
       "marque": "v",
-      "reference": "vff",
+      "reference": "",
       "image": null,
-      "prix": "100",
-      "quantite": "1",
+      "prix": "50",
+      "quantite": "3",
       "couleur": "#ffb200",
       "dateajoute": "28/06/2020",
-      "nombredemodification": 22,
+      "nombredemodification": 27,
       "ok": [
         {
           "text": "ok",
@@ -72,24 +64,31 @@
       "datemodification": "29/06/2020"
     },
     {
-      "name": "",
-      "type": "",
+      "name": "kk",
+      "type": "ok1",
       "collection": "collection",
-      "marque": "",
-      "reference": "",
+      "marque": "kk",
+      "reference": "jj",
       "image": "http://localhost:3000/imageuplod/1593-94990711_117851506562128_2607668936837169152_n.jpg",
       "prix": "6",
       "quantite": "91",
       "couleur": "#0000ff",
       "dateajoute": "28/06/2020",
-      "nombredemodification": 4,
-      "ok": [],
+      "nombredemodification": 6,
+      "ok": [
+        {
+          "text": "ok",
+          "date": "29/06/2020, 8:33:02 pm",
+          "user": "manel",
+          "role": "Responsable achat"
+        }
+      ],
       "id": 2,
       "datemodification": "29/06/2020"
     },
     {
-      "name": "name1",
-      "type": "type1",
+      "name": "",
+      "type": "",
       "collection": null,
       "marque": "marq",
       "reference": "Refence",
@@ -98,9 +97,10 @@
       "quantite": "1",
       "couleur": "#c14545",
       "dateajoute": "28/06/2020",
-      "nombredemodification": 0,
+      "nombredemodification": 1,
       "ok": [],
-      "id": 3
+      "id": 3,
+      "datemodification": "29/06/2020"
     },
     {
       "name": "d",
@@ -501,6 +501,132 @@
       "dateaction": "29/06/2020",
       "action": "modification",
       "id": 38
+    },
+    {
+      "useraction": "manel",
+      "dateaction": "29/06/2020",
+      "action": "modification",
+      "id": 39
+    },
+    {
+      "name": "kk",
+      "type": "ok1",
+      "collection": "collection",
+      "marque": "kk",
+      "reference": "jj",
+      "image": "http://localhost:3000/imageuplod/1593-94990711_117851506562128_2607668936837169152_n.jpg",
+      "prix": "6",
+      "quantite": "91",
+      "couleur": "#0000ff",
+      "useraction": "manel",
+      "dateaction": "29/06/2020",
+      "action": "modification",
+      "id": 40
+    },
+    {
+      "name": "",
+      "type": "",
+      "collection": null,
+      "marque": "marq",
+      "reference": "Refence",
+      "image": null,
+      "prix": "2",
+      "quantite": "1",
+      "couleur": "#c14545",
+      "useraction": "manel",
+      "dateaction": "29/06/2020",
+      "action": "modification",
+      "id": 41
+    },
+    {
+      "name": "",
+      "type": "",
+      "collection": "v2",
+      "marque": "v",
+      "reference": "",
+      "image": null,
+      "prix": "100",
+      "quantite": "1",
+      "couleur": "#ffb200",
+      "useraction": "manel",
+      "dateaction": "29/06/2020",
+      "action": "modification",
+      "id": 42
+    },
+    {
+      "name": "",
+      "type": "",
+      "collection": "v2",
+      "marque": "v",
+      "reference": "",
+      "image": null,
+      "prix": "100",
+      "quantite": "1",
+      "couleur": "#ffb200",
+      "useraction": "manel",
+      "dateaction": "29/06/2020",
+      "action": "modification",
+      "id": 43
+    },
+    {
+      "name": "kkkk",
+      "type": "",
+      "collection": "v2",
+      "marque": "v",
+      "reference": "",
+      "image": null,
+      "prix": "100",
+      "quantite": "1",
+      "couleur": "#ffb200",
+      "useraction": "manel",
+      "dateaction": "29/06/2020",
+      "action": "modification",
+      "id": 44
+    },
+    {
+      "name": "kkkk",
+      "type": "jjjjj",
+      "collection": "v2",
+      "marque": "v",
+      "reference": "",
+      "image": null,
+      "prix": "100",
+      "quantite": "1",
+      "couleur": "#ffb200",
+      "useraction": "manel",
+      "dateaction": "29/06/2020",
+      "action": "modification",
+      "id": 45
+    },
+    {
+      "name": "kkkk",
+      "type": "jjjjj",
+      "collection": "v2",
+      "marque": "v",
+      "reference": "",
+      "image": null,
+      "prix": "50",
+      "quantite": "3",
+      "couleur": "#ffb200",
+      "useraction": "manel",
+      "dateaction": "29/06/2020",
+      "action": "modification",
+      "id": 46
+    },
+    {
+      "name": "kk",
+      "type": "ok1",
+      "collection": "collection",
+      "marque": "kk",
+      "reference": "jj",
+      "image": "http://localhost:3000/imageuplod/1593-94990711_117851506562128_2607668936837169152_n.jpg",
+      "prix": "6",
+      "quantite": "91",
+      "couleur": "#0000ff",
+      "useraction": "manel",
+      "dateaction": "29/06/2020",
+      "action": "ajouter comentaire",
+      "id": 47
     }
   ],
   "session": [

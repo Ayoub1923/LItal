@@ -193,9 +193,10 @@ label{
 }
 
 .bagroundmenu{
-    background: url(https://image.freepik.com/photos-gratuite/concept-arriere-plan-vue-dessus-image-aerienne-concepteur-mode-placer-accessoire-couture-atelier-travail-outil-tailleur_1921-967.jpg) no-repeat center center fixed ;
+    background: url(https://image.freepik.com/photos-gratuite/concept-arriere-plan-vue-dessus-image-aerienne-concepteur-mode-placer-accessoire-couture-atelier-travail-outil-tailleur_1921-967.jpg) no-repeat top center fixed ;
    opacity: 0.8;
     background-size: cover;
+  background-size: 200%;
  
 
 }
