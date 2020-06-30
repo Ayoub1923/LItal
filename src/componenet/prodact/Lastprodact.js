@@ -4,7 +4,7 @@ import { Pagination } from "../composant";
 import { URL } from '../../action/baseurl'
 import { Modal, Button } from 'react-bootstrap';
 let datas = []
-
+let message = "n`ont pas indiquer "
 function Lastprodact(props) {
 
   let [data, setdata] = useState([])
@@ -40,13 +40,13 @@ function Lastprodact(props) {
       return result = rowsPerPage.map((el, i) =>
         <><tr>
           <td>{el.id}</td>
-          <td>{el.name}</td>
-          <td>{el.reference}</td>
-          <td>{el.color}</td>
-          <td>{el.quantite}</td>
-          <td>{el.dateajoute}</td>
+          <td>{el.name ? el.name : message }</td>
+          <td>{el.reference ? el.name : message  }</td>
+          <td><input type="color" value ={el.couleur} disabled></input></td>
+          <td>{el.quantite ? el.quantite : message} </td>
+          <td>{el.dateajoute ? el.dateajoute : message}</td>
 
-          <td><button onClick={() => shows()} class="bagroundcolortransparent vertcolor"><i class="eye icon"></i></button></td>
+          <td><button onClick={() => shows()} class="bagroundcolortransparent vertcolor"><i class="eye icon"></i></button></td> 
         </tr>
 
           <Modal show={valeur} onHide={handleClose} dialogClassName="modal-90w"
@@ -70,10 +70,10 @@ function Lastprodact(props) {
                   </tr></thead><tbody>
                   <tr>
                     <td>{el.id}</td>
-                    <td>{el.name}</td>
-                    <td>{el.type}</td>
-                    <td>{el.collection}</td>
-                    <td>{el.marque}</td>
+                    <td>{el.name ? el.name : message}</td>
+                    <td>{el.type ? el.type : message}</td>
+                    <td>{el.collection ? el.collection : message}</td>
+                    <td>{el.marque ? el.marque : message}</td>
                     <td>{el.reference}</td>
                     <td>{el.prix}</td>
                     <td>{el.color}</td>
@@ -166,6 +166,7 @@ function Lastprodact(props) {
         />
       </div>
     </div>
+
     </>
   )
 }

@@ -47,8 +47,7 @@ export  function getusersFromApi(){
         "dateInscription": moment().format("DD/MM/YYYY") 
       
   }))
-   .then( res => console.log(res),
-          window.location.reload()     )
+   .then( res => console.log(res))
    .catch(err => console.log(err))
    }
    //update user

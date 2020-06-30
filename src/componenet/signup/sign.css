@@ -1,12 +1,19 @@
 .login-page{
-  width:100%;
-  height:100vh;
+  width:200%;
+  height:50vh;
   display: flex;
-
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+.logoacceuil{
+ 
+  width: 500px;
+  background-image: url(../composant/assest/logoacceuil.png);
+  opacity: 0.7;
+  border-radius: 5%;
+ 
 }
 .login-box,.forgot-pass-box{
   width:40%;
@@ -49,12 +56,12 @@
 }
 .forgot-password{
   margin-top: 10px;
-  color: #da9b62;
+  color: #0069c0;
 }
 .forgot-password:hover{
   text-decoration: none;
   margin-top: 10px;
-  color: #da9b62;
+  color: #0069c0;
 }
 /*********************************************************************/
 .forgot-pass-box{
@@ -72,14 +79,14 @@
 }
 .cancel{
   height:37px;
-  border:1px solid #da9b62;
+  border:1px solid #0069c0;
   background-color: transparent;
   border-radius: 5px;
   padding: 0 20px;
 }
 .cancel:hover{
   height:37px;
-  background-color: #a79b94;
+  background-color: #0069c0;
   border-radius: 5px;
   padding: 0 20px;
 }
@@ -88,3 +95,39 @@
   border: 1px solid rgb(148, 101, 48);
   outline: none;
 }
+
+/* login page */
+.imgfluid{
+  max-width: 100%;
+height: auto;
+}
+.login-block{
+  float:left;
+  width:100%;
+  padding : 50px 0;
+  }
+  
+  .container{background:#d3d3d3a2; border-radius: 10px; width: 80%; height: 80%;}
+  .login-sec{padding: 50px 30px; position:relative;}
+  .login-sec h2{margin-bottom:30px; font-weight:800; font-size:30px; color: #0069c0;}
+  .login-sec h2:after{content:" "; width:100px; height:5px; background:#6ec6ff; display:block; margin-top:20px; border-radius:3px; margin-left:auto;margin-right:auto}
+  .btn-login{background: #0069c0; color:#fff; font-weight:600;}
+
+
+  .bagroundcolor{
+   
+    background: url(../composant/assest/baground.jpeg) ;
+  background-size: cover;
+width: 100%;
+height: 100%;
+margin: 0px;
+padding: 0px;
+position:fixed;
+  }
+  
+  .flex{
+    display: flex;
+justify-content: space-between;
+width: 100%;
+
+  }

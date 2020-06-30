@@ -25,10 +25,10 @@ z-index: 555;
 top: 0;
 left: 0;
 width: 80%;
-background-color: #333;
 padding: 1rem;
 color: #fff;
 max-width: 300px;
+font-size: x-large;
 height: 100%;
 transform: translateX(${props => (props.show ? "0" : "-100%")});
 transition: all 0.3s ease-in-out;
@@ -43,9 +43,9 @@ export const Linked = styled.div`
   color: #fff;
   font-family: inherit;
   padding: 1em 2rem;
-  font-size: 13px;
+  font-size: 16px;
   &:first-of-type {
-    margin-top: 50px;
+    margin-top: 25px;
   }
 `;
 export const  CloseIcon = styled.div`

@@ -57,7 +57,7 @@ function handleClose(){
     </tr></thead><tbody>
         <tr>
     <td>{props.historique.id}</td>
-<td>{props.historique.username}</td>
+<td>{props.historique.useraction}</td>
 <td>{props.historique.name}</td>
 <td>{props.historique.type}</td>
 <td>{props.historique.collection}</td>
@@ -66,7 +66,7 @@ function handleClose(){
 <td>< img src={props.historique.image}  alt ={props.historique.id} width="100px"></img></td>
 <td>{props.historique.prix}</td>
 <td>{props.historique.quantite}</td>
-<td>{props.historique.color}</td>
+<td><input type="color" value={props.historique.couleur} disabled></input></td>
 <td>{props.historique.dateaction}</td>
 <td>{props.historique.action}</td>
 </tr>

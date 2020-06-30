@@ -4,23 +4,25 @@ import {URL}  from './baseurl'
 import Axios from 'axios';
 // post new product
 export  function postnewproduct(x,image){
-  let  paylod = {
+  console.log("add produit",x)
+  let  paylod ="" ;
+  if(image === undefined)
+  paylod = {
     "name": x[0],
     "type":x[1] ,
     "collection":x[2],
     "marque":x[3],
     "reference":x[4],
-    "image": image !== null ? image :  x[5],
+    "image":   x[5],
     "prix":x[6],
     "quantite":x[7],
-    "color": x[8],
+    "couleur": x[8],
+    "mesure":x[9],
     "dateajoute":moment().format("DD/MM/YYYY"),
     "nombredemodification":0,
     
     "ok":[]
-  
-  
-   }
+  }
     return (dispatch) => Axios.post(URL+"ListeProduit",
 paylod
      )
@@ -49,12 +51,13 @@ export  function getallproductfromapi(){
 });
  
 // update product 
-export function updatedateprodact (x) {
-  console.log("prpos" ,x)
-  return (dispatch) => Axios.put(URL+"ListeProduit/"+x.id,({
-   ...x,
-   "datemodification":moment().format("DD/MM/YYYY"),
-    "nombredemodification": x.nombredemodification +1,
+export function updatedateprodact (x,y) {
+  console.log("prpos" ,x,y ) 
+  return (dispatch) => Axios.patch(URL+"ListeProduit/"+x.id,({
+    ...x,
+    "image":y !== null ? y : x.image,
+     "datemodification":moment().format("DD/MM/YYYY"),
+     "nombredemodification": x.nombredemodification +1,
    
       })
   )
@@ -88,7 +91,7 @@ export const changestateprodact= (paylod) => ({
   type: types.FILTERPRODUCT,
   paylod,
 })
-
+/*
 //get all commentaire
 export  function getallcomment(){
   return (dispatch) => Axios.get(URL+"comentair")
@@ -100,7 +103,7 @@ export  function getallcomment(){
   type: types.GETCOMENTAIR,
   payload:payload,
 });
- 
+*/
 //sendcomentair
 export  function postallcomment(id,z){
   return (dispatch) => Axios.patch(URL+"ListeProduit/"+id,({
@@ -112,3 +115,9 @@ export  function postallcomment(id,z){
  
   .catch((error) => alert(error + "liste produit add comentair"))
  }
+
+ //filter by quantite 
+ export const  filterbyquantiter = (paylod) =>({
+   type : types.FILTERBYQUANTITER,
+   paylod
+ })

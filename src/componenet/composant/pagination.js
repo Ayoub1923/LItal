@@ -111,7 +111,7 @@ class Pagination extends Component {
             disabled={pager.currentPage === 1 ? true : false}
             onClick={() => this.setPage(1)} 
           >
-          debut
+        <i class="angle double left icon" titel="debut"></i>
           </button>
         </li>
         <li>
@@ -119,7 +119,7 @@ class Pagination extends Component {
             disabled={pager.currentPage === 1 ? true : false}
             onClick={() => this.setPage(pager.currentPage - 1)}
           >
-            preced
+           <i class="angle left icon" title="precedent"></i>
           </button>
         </li>
         {pager.pages.map((page, index) => (
@@ -137,7 +137,7 @@ class Pagination extends Component {
             disabled={pager.currentPage === pager.totalPages ? true : false}
             onClick={() => this.setPage(pager.totalPages)}
           >
-            fin
+            <i class="angle double right icon" title="fin"></i>
           </button>
         </li>
       </ul>

@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 
 
 let x = Date.now()
-let code = x.toString().substring(0,6)
+let code = x.toString().substring(0,4)
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {

@@ -54,8 +54,18 @@ const [texeria, settexteria] = useState("")
       let  tableux =Object.values(produit[0])
     console.log("mon tableux",tableux)
     const data = tableux.splice(0,9);
-    console.log(" ya mohamed ", data)
-      props.setnewhistoriquefromapi(data.concat(props.useres.usersession[0]),"ajouter comentaire")
+    let comentaction  = { name: data[0],
+        type:data[1],
+        collection:data[2],
+        marque:data[3],
+        reference:data[4],
+        image: data[5],
+        prix:data[6],
+        quantite:data[7],
+        couleur: data[8],
+        }
+ 
+      props.setnewhistoriquefromapi(comentaction,props.useres.usersession[0],"ajouter comentaire")
     }
     return (
         <>
