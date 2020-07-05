@@ -9,41 +9,44 @@ import { getusersFromApi} from '../../action/useraction'
   state = {
     forgottenPass: ""
   }
+  /*
   componentDidMount() {
-    this.props.getusersFromApi();
+ //   this.props.getusersFromApi();
   }
-
+*/
  sendmail = () => {
- console.log(this.props.users)
-  let id = -1
-  for (let i = 0; i < this.props.users.length; i++) {
+ //console.log(this.props.users)
+  //let id = -1
+  /*for (let i = 0; i < this.props.users.length; i++) {
     if (this.state.forgottenPass=== this.props.users[i].email)
     id = i;
-  }
-  if (id !== -1)
+  }*/
+  /*if (id !== -1)
   {
    
-  let   x = this.props.users[id]
-  console.log("valeur de x ",x,x.first_name)
+  let   x = this.props.users[id]*/
+ // console.log("valeur de x ",x,x.first_name)
+ if (this.state.forgottenPass !== ""){
     Axios.post("http://localhost:8000/send",{
- name  : x.first_name,   
- email: x.email,  
- messsage: x.password + " " +x.email
-})
+ //name  : x.first_name,   
+ email: this.state.forgottenPass
+ //messsage: x.password + " " +x.email
+ })
  .then (res =>  {
    if (res.data.msg === 'success'){
-   alert("Message Sent."); 
-}else if(res.data.msg === 'fail'){
-   alert("Message failed to send.")
-}})
-    }
-else
-{
-alert("votre donner n'est pas valide")
+   alert("message send"); 
+  }else if(res.data.msg === 'fail'){
+   alert("user fild")
+  }})
+  .catch( error =>  
 
-    }
+
+alert("votre donner n'est pas valide" , error)
+  )
+  }
+  else
+  alert("votre donner est vide" )
 }
- 
   render() {
     return (
       <div className="bagroundcolor">
@@ -54,7 +57,7 @@ alert("votre donner n'est pas valide")
             <div class="row ">
               <div class="col login-sec">
                 <h2 class="text-center">Oublier mon mot de passe</h2>
-                <form class="login-form">
+                <div class="login-form">
                   <div class="form-group">
                     <label for="exampleInputEmail1" class="text-uppercase">Email</label>
                     <input type="email" class="form-control" placeholder="VOTRE EMAIL ICI" onChange={(e) => this.setState({ forgottenPass: e.target.value })}/>
@@ -68,7 +71,7 @@ alert("votre donner n'est pas valide")
    </div>
  </div>
            
-                </form>
+                </div>
               </div>
             </div>
           </div>
@@ -79,14 +82,14 @@ alert("votre donner n'est pas valide")
   }
 }
 const mapStateToProps = (state) => {
-  return {
+/*  return {
     users:state.users.user
-  }
+  }*/
 }
 const mapDispatchtoProps = (dispatch) => {
-  return {
+ /* return {
     getusersFromApi: () => dispatch(getusersFromApi()),
 
-  }
+  }*/
 }
 export default connect(mapStateToProps, mapDispatchtoProps)(Forgotpass)

@@ -51,7 +51,7 @@ function Allproduct(props) {
     });
   };
   let rowsPerPage = [];
-  rowsPerPage = props.prod.product.slice(state.startIndex, state.endIndex + 1);
+  rowsPerPage = props.prod.product.slice(state.startIndex, state.endIndex + 1)
 
  const  filterquantiter = (e) => {
  let quantiter = e.target.value;
@@ -106,6 +106,7 @@ function Allproduct(props) {
         <span class="ui input">
         <input type="text"  className=" col-md-4"   placeholder="name,type,categorie,prix,couleur" onChange={(e) => setinput(e.target.value)}></input><button className="ui inverted primary button colorwhitee" onClick={recherche}>Recherche</button>
         </span>
+        { props.prod.product.length > 0 ?  <>
         <table class="ui blue table">
           <thead>
             <tr><th>id</th>
@@ -120,7 +121,8 @@ function Allproduct(props) {
              {/* props.prod.map(el => <Productitem product={el}></Productitem>)*/}
                     {     showprodact(rowsPerPage)          }
           </tbody>
-        </table>
+        </table> </> : 
+     <h1>vous n'avez pas encore de produit</h1> }
         <div className="col-xs-12 box_pagination_info text-right">
           <p>
           Nombre de produit: {props.prod.product.length} page  {state.currentPage}/{state.totalPages}

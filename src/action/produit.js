@@ -10,9 +10,9 @@ export  function postnewproduct(x,image){
   paylod = {
     "name": x[0],
     "type":x[1] ,
-    "collection":x[2],
+    "collct":x[2],
     "marque":x[3],
-    "reference":x[4],
+    "ref":x[4],
     "image":   x[5],
     "prix":x[6],
     "quantite":x[7],
@@ -23,7 +23,7 @@ export  function postnewproduct(x,image){
     
     "ok":[]
   }
-    return (dispatch) => Axios.post(URL+"ListeProduit",
+    return (dispatch) => Axios.post(URL+"app/ListeProduit",
 paylod
      )
     .then ((res) => dispatch(addproduct(paylod) ) )
@@ -40,8 +40,10 @@ export const addproduct = (paylod) =>
 )
 // get all product from api
 export  function getallproductfromapi(){
-  return (dispatch) => Axios.get(URL+"ListeProduit")
-  .then (res => dispatch(allproductfromapi(res.data))) 
+  return (dispatch) => Axios.get(URL+"app/Allproduct")
+  .then (res =>  {console.log(res.data.produit) 
+  dispatch(allproductfromapi(res.data.produit))}
+  ) 
  
   .catch((error) => alert(error + "liste produit get"))
  }
@@ -53,7 +55,7 @@ export  function getallproductfromapi(){
 // update product 
 export function updatedateprodact (x,y) {
   console.log("prpos" ,x,y ) 
-  return (dispatch) => Axios.patch(URL+"ListeProduit/"+x.id,({
+  return (dispatch) => Axios.patch(URL+"app/ListeProduit/"+x._id,({
     ...x,
     "image":y !== null ? y : x.image,
      "datemodification":moment().format("DD/MM/YYYY"),
@@ -72,7 +74,7 @@ export const updateproductstate = paylod => ({
 
 // delate prodact
 export function delateproduct(id){
-  return (dispatch) => Axios.delete(URL +`ListeProduit/${id}`)
+  return (dispatch) => Axios.delete(URL +`app/ListeProduit/${id}`)
   .then(res =>  console.log(res) ,dispatch(delateproductfromstate(id)))
   .catch( err => console.log(err + "liste produit delate"))
 }
@@ -106,7 +108,8 @@ export  function getallcomment(){
 */
 //sendcomentair
 export  function postallcomment(id,z){
-  return (dispatch) => Axios.patch(URL+"ListeProduit/"+id,({
+  console.log("comentaire",z)
+  return (dispatch) => Axios.patch(URL+"app/ListeProduit/"+id,({
  "ok": z }))
   .then (res => console.log(res),
   window.location.reload()

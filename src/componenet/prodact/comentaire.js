@@ -29,7 +29,7 @@ const [texeria, settexteria] = useState("")
     }, [])
 
     useEffect(() => {
-        setproduit(props.prod.product.filter(el => el.id == id))
+        setproduit(props.prod.product.filter(el => el._id == id))
         setfilterdata(produit.filter(el => el.ok))
 
 
@@ -45,7 +45,7 @@ const [texeria, settexteria] = useState("")
    function handleChange(event) {   settexteria(event.target.value);  }
    function  sendcomentaire() 
     { let datee=  moment().format("DD/MM/YYYY, h:mm:ss a") //  Date(Date.now()).toString().substring(0, 15)
-      let y = {text:texeria,date:datee,user:props.useres.usersession[0],role:props.useres.usersession[6]}
+      let y = {text:texeria,date:datee,user:localStorage.getItem('First_name'),role:localStorage.getItem('role')}
        let  xx= produit.map(el =>el.ok)
        console.log(xx)
        let z = [...xx[0].concat(y)]
@@ -54,18 +54,19 @@ const [texeria, settexteria] = useState("")
       let  tableux =Object.values(produit[0])
     console.log("mon tableux",tableux)
     const data = tableux.splice(0,9);
-    let comentaction  = { name: data[0],
-        type:data[1],
-        collection:data[2],
-        marque:data[3],
-        reference:data[4],
-        image: data[5],
-        prix:data[6],
-        quantite:data[7],
-        couleur: data[8],
+    let comentaction  = { 
+        name: data[1],
+        type:data[2],
+        collct:data[3],
+        marque:data[4],
+        ref:data[5],
+        image: data[6],
+        prix:data[7],
+        quantite:data[8],
+        couleur: data[9],
         }
  
-      props.setnewhistoriquefromapi(comentaction,props.useres.usersession[0],"ajouter comentaire")
+      props.setnewhistoriquefromapi(comentaction,localStorage.getItem('First_name'),"ajouter comentaire")
     }
     return (
         <>
@@ -76,11 +77,11 @@ const [texeria, settexteria] = useState("")
             <Sidebar show={isOpened} setIsOpened={setIsOpened} />
             <div className="Content">
                 {produit.map(el => <>
-                    <h4>Produit ID:  {el.id}</h4>
+                    <h4>Produit ID:  {el._id}</h4>
                     <div className="flex-warped">
                         <p>produit name :{el.name}</p>
-                        <p>produit cole :{el.color} </p>
-                        <p>Image Produit  :<img src={el.image} alt ={el.id + el.name} width="100px" /> </p>
+                        <p>produit  :{el.ref} </p>
+                        <p>Image Produit  :<img src={el.image} alt ={el._id + el.name} width="100px" /> </p>
                     </div>
                     <div>{Object(el.ok).map(el => <div>
                         <div class="ui segment">

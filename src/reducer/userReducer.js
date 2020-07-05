@@ -17,7 +17,7 @@ export default function userReducer(state = initistate, action) {
       case types.DELATEUSERID : 
        let  user = Object(state.user)
       return {...state ,
-         user : user.filter ( el => el.id !== action.payload)
+         user : user.filter ( el => el._id !== action.payload)
       }
        case types.UPDATESTATE : 
        return {
@@ -34,7 +34,7 @@ export default function userReducer(state = initistate, action) {
         "image":action.payload[4],
         "id":action.payload[5],
        }
-      let x =  userdata.filter ( el => el.id !== action.payload[5])
+      let x =  userdata.filter ( el => el._id !== action.payload[5])
       console.log(action.payload)
        x= x.concat(updat)
        return { ...state,

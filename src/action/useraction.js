@@ -6,10 +6,10 @@ import moment from 'moment';
 
 // get alll users
 export  function getusersFromApi(){
-    return (dispatch) => Axios.get(URL+"users")
+    return (dispatch) => Axios.get(URL+"app/users")
     .then ((res) => dispatch(getAllUsers(res.data)) )
    
-    .catch((error) => alert(error))
+    .catch((error) => alert(error +"user"))
    }
    export const getAllUsers = (payload) => ({
     type: types.GETALLUSERFORMAPI,
@@ -22,20 +22,20 @@ export  function getusersFromApi(){
      payload : id
    })
    //delate user
-   export function deleteUser(id){
-    return (dispatch) => Axios.delete(URL+`users/${id}`)
-    .then ((res) => dispatch(delatUserid(id)) )
+   export function deleteUser(_id){
+    return (dispatch) => Axios.delete(URL+`app/delateuser/${_id}`)
+    .then ((res) => dispatch(delatUserid(_id)) )
     .catch((error) => alert(error))
 
    }
 
-   export const delatUserid = (id) =>({ 
+   export const delatUserid = (_id) =>({ 
      type : types.DELATEUSERID,
-     payload :id
+     payload :_id
    })
        // add user
    export function Adduser(x){return (dispatch) => 
-    Axios.post(URL+`users`, ({
+    Axios.post(URL+`app/addnewuser`, ({
     
         "first_name": x[0],
         "last_name": x[1],
@@ -51,24 +51,20 @@ export  function getusersFromApi(){
    .catch(err => console.log(err))
    }
    //update user
-   export function updatedate(first_name,last_name,email,password,image,id){
+   export function updatedate(obj){
+     console.log("id est " , obj)
     return (dispatch) => 
-    Axios.put(URL+`users/${id}`, ({
-      first_name:first_name,
-      last_name : last_name,
-      email:email,
-      password :password,
-      image:image
+    Axios.patch(URL+`app/user/${obj.id}`, ({obj
 
     }))
-    .then ((res) => dispatch(updateUserid(first_name,last_name,email,password,image,id)) )
+    .then ((res) => console.log(res) )
     .catch((error) => alert(error))
   
    }
 
-   export const updateUserid = (first_name,last_name,email,password,image,id) =>({ 
+   export const updateUserid = (obj)=>({ 
   type : types.UPDATEUSERID,
-  payload :[first_name,last_name,email,password,image,id]
+  payload :[obj.first_name,obj.last_name,obj.email,obj.password,obj.image,obj.id]
 })
 
 /* filter user state */
@@ -80,7 +76,8 @@ paylod,
 })
  // post sessionstate
 
-/*session state */
+//session state 
+/*
 export function updatesessiondate(x){
   return (dispatch) => 
   Axios.put(URL+`session/${1}`, ({
@@ -97,7 +94,7 @@ export function updatesessiondate(x){
   .catch((error) => alert(error))
   
  }
-
+*/
 export const sessionstate = (payload) => ({
 
   type : types.USERSESSION,
@@ -106,7 +103,7 @@ export const sessionstate = (payload) => ({
 
 // get session state
 export  function getsessionstate(){
-  return (dispatch) => Axios.get(URL+"session")
+  return (dispatch) => Axios.get(URL+"nonidiquer")
   .then ((res) => dispatch (sessionstate(Object.values(res.data[0]))))
 
   

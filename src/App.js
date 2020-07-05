@@ -17,20 +17,22 @@ import { Sign } from './componenet'
 import { Forgotpass } from './componenet'
 function App(props) {
   useEffect(() => {
-    props.getsessionstate()
+  //  props.getsessionstate()
   }, [])
   useEffect(() => {
 
   }, [props.users])
   return (
     <div>
+     
       <Router>
         {console.log("users", props.users.length)}
         <Switch>
 
-
-         
-          <Route exact path="/Home">  <Dashbord /></Route>
+        { localStorage.getItem("role") ? 
+         <>
+         <Route exact path="/Home">  <Dashbord /></Route>
+        
           <Route exact path="/Prodact"><Allproduct /></Route>
           <Route exact path="/update-produit"><Updateprodact /></Route>
           <Route exact path="/Addprodact"><Addprodact /></Route>
@@ -38,10 +40,9 @@ function App(props) {
           <Route exact path="/User"><User /></Route>
           <Route exact path="/update-user"><Updateuser /></Route>
           <Route exact path="/Adduser"><Adduser /></Route>
-          <Route exact path="/Historique"> <Historiquecontainer /> </Route> 
-          <Route exact path="/"><Sign /></Route>
-          <Route exact path="/forgotpass"><Forgotpass /></Route>
-         {/* <Redirect to="/" /> */}
+  <Route exact path="/Historique"> <Historiquecontainer /> </Route> 
+           </>: <> <Route exact path="/"><Sign /></Route><Route exact path="/forgotpass"><Forgotpass /> </Route><Redirect to="/" /> </>}
+         
 
 
         </Switch>

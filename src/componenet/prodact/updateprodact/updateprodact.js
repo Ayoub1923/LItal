@@ -38,7 +38,7 @@ import moment from 'moment';
 
     useEffect(() => {
       console.log("propschangers", props.prod.product);
-      let propsproduct =  props.prod.product.filter(el => el.id == id);
+      let propsproduct =  props.prod.product.filter(el => el._id == id);
       if (propsproduct !== undefined)
       {
       let  tableux =propsproduct[0]
@@ -199,7 +199,7 @@ current.style='display:none'} aria-label="Close">
            </div>
            <div className="Name col-sm">
            <label  className="col-sm-4"> Collection</label>
-               <input  cclassName="col-sm-8" type="text" Value={old[0].collection} onChange={(e) => old[0].collection= e.target.value } ></input>
+               <input  cclassName="col-sm-8" type="text" Value={old[0].collct} onChange={(e) => old[0].collect= e.target.value } ></input>
            </div>
            </div>
            <br/>
@@ -210,7 +210,7 @@ current.style='display:none'} aria-label="Close">
            </div>
            <div className="Reference  col-sm">
            <label className="col-sm-4">Reference</label><span className="rouge">* </span>
-               <input className="col-sm-8"  type="text" defaultValue={old[0].reference}  onChange={(e) => old[0].reference = e.target.value}  ></input>
+               <input className="col-sm-8"  type="text" defaultValue={old[0].ref}  onChange={(e) => old[0].ref = e.target.value}  ></input>
            </div>
            <div className="Image  col-sm">
   <label className="col-sm-4">Image</label>

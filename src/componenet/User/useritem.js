@@ -17,12 +17,11 @@ class Useritem extends Component {
   }
   render() {
     const { donner, delet, update } = this.props;
-
     return (
 
       <>
         <tr>
-          <td width="7%"> 👱 id- {donner.id} </td>
+          <td width="7%"> 👱 id- {donner._id.slice(20,24)} </td>
           <td class="collapsing" width="8%">
             {donner.first_name}
           </td>
@@ -32,8 +31,8 @@ class Useritem extends Component {
             <span className=" ui submit button miniwidthbtn widthw10" onClick={() => this.setState({ changetype: !this.state.changetype })}>{this.state.changetype ? "👁" : "🧐"} </span>
           </td>
           <td width="5%"> <img src={donner.image} width="50px" /></td>
-          <td width="20%"> <div className="flex-bettwen"><button  onClick={() => delet(donner.id)} class="bagroundcolortransparent red"><i class="trash icon"></i></button>{" "}
-            <NavLink to='/update-user'> <button  onClick={() => update(donner.id)} class="bagroundcolortransparent yellow" ><i class="edit icon">
+          <td width="20%"> <div className="flex-bettwen"><button  onClick={() => delet(donner._id)} class="bagroundcolortransparent red"><i class="trash icon"></i></button>{" "}
+            <NavLink to='/update-user'> <button  onClick={() => update(donner._id)} class="bagroundcolortransparent yellow" ><i class="edit icon">
             </i></button> </NavLink>  <button   onClick={this.show} class="bagroundcolortransparent vert"><i class="eye icon"></i></button></div> </td>
         </tr>
 

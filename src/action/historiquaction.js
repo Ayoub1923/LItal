@@ -4,7 +4,7 @@ import {URL} from './baseurl'
 import moment from 'moment';
 // get all historique from api
 export  function getallhistoriquefromapi(){
-    return (dispatch) => Axios.get(URL+"historique")
+    return (dispatch) => Axios.get(URL+"app/Allhistorique")
     .then (res => dispatch(allhistoriquefromapi(res.data))) 
    
     .catch((error) => console.log(error))
@@ -18,12 +18,12 @@ export  function getallhistoriquefromapi(){
   export  function setnewhistoriquefromapi(x,user,action){
     console.log("couleur", x.couleur)
       let paylod = x
-    return (dispatch) => Axios.post(URL+"historique",({
+    return (dispatch) => Axios.post(URL+"app/historique",({
       "name": x.name,
       "type":x.type,
-      "collection":x.collection,
+      "collct":x.collct,
       "marque":x.marque,
-      "reference":x.reference,
+      "ref":x.ref,
       "image": x.image,
       "prix":x.prix,
       "quantite":x.quantite,
