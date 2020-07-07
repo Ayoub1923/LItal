@@ -81,10 +81,10 @@ let message = "n`ont pas indiquer "
  <Modal show={valeur} onHide={handleClose} dialogClassName="modal-100w" animation = {true}
         aria-labelledby="example-custom-modal-styling-title" size="xl">
        <Modal.Header closeButton>
-   <Modal.Title>Transaction numero {props.product.id}</Modal.Title>
+   <Modal.Title className='title'>Transaction numero {props.product.id}</Modal.Title>
        </Modal.Header>
        <Modal.Body>
-       <table class="ui blue table">
+       <table class=" table">
     <thead>
     <tr>
     <th>Nom</th>

@@ -15,7 +15,7 @@ const  Dashbord = ({users}) => {
       <Background setIsOpened={setIsOpened} show={isOpened} />
       <Sidebar show={isOpened} setIsOpened={setIsOpened} />
       <div className="Content">
-        <h3>Derneire Produit</h3>
+        <h1 className='title'>Dernière Produit</h1>
  <Lastprodact/>
        
       </div>

@@ -1,9 +1,13 @@
 var express = require('express');
 var app = express();
+var  mangoosdb = require('./config/mongoose')
 var bodyParser = require('body-parser');
 var multer = require('multer')
 var nodemailer = require('nodemailer');
 var cors = require('cors');
+
+const productRoot = require('./root/product')
+
 let transport = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 587,
@@ -23,8 +27,13 @@ let transport = nodemailer.createTransport({
     port:465
   }
 }*/
+mangoosdb()
 app.use(cors())
-app.use(bodyParser.json());
+app.use(bodyParser.json())
+
+
+app.use('/lital', productRoot)
+
 //app.use(bodyParser.urlencoded({ extended:false }))
 
 
@@ -45,6 +54,7 @@ var storage = multer.diskStorage({
 app.get('/',function(req,res){
     return res.send('Hello Server')
 })
+
 app.post('/upload',function(req, res) {
     
     upload(req, res, function (err) {

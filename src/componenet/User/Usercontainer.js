@@ -79,16 +79,16 @@ onChangePage = data => {
   <Background setIsOpened={this.state.isOpened} show={this.state.isOpened} />
   <Sidebar show={this.state.isOpened} setIsOpened={(x) => this.changer(x)} />
    <div className="Content">
-   <h3>Gestion des users</h3>
+  <strong> <h1 className='title'>Gestion des users</h1></strong>
    <div className="row">
-    <div className="col-xs-12 box_change_pagelimit">
+    <div className="col-xs-12 box_change_pagelimit" className='select'>
       select filter
            <select
         className="form-control"
         value={pageLimit}
         onChange={e =>this.setState({ pageLimit: parseInt(e.target.value) })
         }
-      >
+     >
         <option value={5}>5</option>
         <option value={10}>10</option>
         <option value={25}>25</option>
@@ -98,7 +98,7 @@ onChangePage = data => {
     </div>
   </div>
   <div class="ui input">
-  <input type="text" placeholder="name,email,role ou poste  ocuper" onChange={(e) => this.onchange(e)}></input><button className="ui inverted primary button colorwhitee" onClick={() => this.recherche()}>Recherche</button>
+  <input type="text" placeholder="name,email,role ou poste  ocuper" onChange={(e) => this.onchange(e)}></input><button className="ui brown button" onClick={() => this.recherche()}>Recherche</button>
      </div>
        <table class="ui celled striped table">
            <thead>
@@ -120,7 +120,7 @@ onChangePage = data => {
     {user.length}  items  actuelle : {currentPage}/{totalPages}
   </p>
    </div>
-   <div className="col-xs-12 dispalyflexbettwen">
+   <div className="col-xs-12 dispalyflexbettwen" className='select'>
 
     <Pagination
       totalRecords={user.length}

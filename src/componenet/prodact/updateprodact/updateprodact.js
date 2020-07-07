@@ -164,7 +164,7 @@ const onChangeHandler=event=>{
    <div className="Content" ref={contenu}>
      {console.log("produit "  , old)}
    {old.length > 0 ?  <>
-    <h3 className="centre-item"> Modifier de produit Numero  {old[0].id}</h3>
+    <h1 className="centre-item" className='title'> Modifier de produit Numero  {old[0].id}</h1>
     <div class="form-group">
   <ToastContainer />
   </div> 
@@ -219,7 +219,7 @@ const onChangeHandler=event=>{
        <input className="col-sm-8"  defaultValue={old[0].couleur}   type="color" onChange={(e) => old[0].couleur= e.target.value} />
     </div>
   </div>
-          <button style={{ marginTop: '30px'}} onClick={unmount} className="ui inverted primary button col-md-4 colorwhite">Update produit </button>
+          <button style={{ marginTop: '30px'}} onClick={unmount} className="ui brown button">Update produit </button>
        
         </div>
         </div> </> : " il n'existe pas"}

@@ -43,35 +43,6 @@
   ],
   "ListeProduit": [
     {
-      "name": "v",
-      "type": "vfd",
-      "collection": "v2",
-      "marque": "v",
-      "reference": "vff",
-      "image": null,
-      "prix": "100",
-      "quantite": "1",
-      "couleur": "#ffb200",
-      "dateajoute": "28/06/2020",
-      "nombredemodification": 22,
-      "ok": [
-        {
-          "text": "ok",
-          "date": "27/06/2020, 8:13:06 pm",
-          "user": "manel",
-          "role": "Responsable achat"
-        },
-        {
-          "text": "comentaire 2 ",
-          "date": "27/06/2020, 8:34:04 pm",
-          "user": "manel",
-          "role": "Responsable achat"
-        }
-      ],
-      "id": 1,
-      "datemodification": "29/06/2020"
-    },
-    {
       "name": "",
       "type": "",
       "collection": "collection",
@@ -82,10 +53,10 @@
       "quantite": "91",
       "couleur": "#0000ff",
       "dateajoute": "28/06/2020",
-      "nombredemodification": 4,
+      "nombredemodification": 5,
       "ok": [],
       "id": 2,
-      "datemodification": "29/06/2020"
+      "datemodification": "30/06/2020"
     },
     {
       "name": "name1",
@@ -501,6 +472,32 @@
       "dateaction": "29/06/2020",
       "action": "modification",
       "id": 38
+    },
+    {
+      "useraction": "manel",
+      "dateaction": "30/06/2020",
+      "action": "modification",
+      "id": 39
+    },
+    {
+      "useraction": "manel",
+      "dateaction": "30/06/2020",
+      "action": "modification",
+      "id": 40
+    },
+    {
+      "name": "v",
+      "type": "vfd",
+      "collection": "v2",
+      "marque": "v",
+      "reference": "vff",
+      "image": null,
+      "prix": "100",
+      "quantite": "1",
+      "useraction": "manel",
+      "dateaction": "30/06/2020",
+      "action": "produit suprimer",
+      "id": 41
     }
   ],
   "session": [

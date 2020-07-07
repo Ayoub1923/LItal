@@ -2,12 +2,15 @@
 
 .paddingmenu {
     padding-bottom: 2px;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #da9b62;
+    text-decoration: none;
+    font-weight: bolder;
 }
 
 .paddingmenu :hover {
     background-color: white;
-    color: black;
+    color:#da9b62 ;
+    text-decoration: none;
 }
 .paddingmenu:active{
     border-bottom: #fff ;
@@ -75,30 +78,30 @@
 }
 
 .vertcolor {
-    color: #28a745;
+    color: #da9b62;
     font-size: 20px;
-    padding-left: 5px;
+    padding-left: 35px;
 }
 .vert{
-    color: #28a745;
+    color: #da9b62;
 font-size: 20px;
 }
 .colorred{
-    color: #b9001f;
+    color: #6c584c;
     font-size: 20px;
-    padding-left: 5px;
+    padding-left: 35px;
 }
 .red{
-    color: #b9001f;
+    color: #6c584c;
 font-size: 20px;
 }
 .coloryellow{
-    color: rgba(230, 230, 63, 0.678);
+    color: #582900;
     font-size: 20px;
-    padding-left: 5px;
+    padding-left: 35px;
 }
 .yellow{
-    color: rgba(230, 230, 63, 0.678);
+    color:#582900;
     font-size: 20px;  
 }
 .dispalyflex {
@@ -211,4 +214,35 @@ option:after {
     width: 55px;
     border-radius: 5px;
     display: inline-block;
+}
+
+.title{
+    color: #6c584c;
+      padding-top: -70px;
+}
+
+.table{
+    color:  #6c584c; 
+}
+
+.select{
+    color: #6c584c;
+    font-weight: bolder;
+}
+
+.input{
+    padding-bottom:90px;
+
+}
+
+.input-affiche{
+    padding-bottom: 70px;
+}
+
+.image{
+    border-radius: 100px;
+}
+
+.titles{
+    color:#A5280D;
 }

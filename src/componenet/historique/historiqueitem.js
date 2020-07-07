@@ -39,7 +39,7 @@ function handleClose(){
     <Modal.Title>Transaction numero {props.historique.id}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <table class="ui blue table">
+        <table className="table">
      <thead>
     <tr><th>Id</th>
       <th>Nom user</th>

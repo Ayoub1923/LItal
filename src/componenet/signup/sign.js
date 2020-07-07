@@ -52,10 +52,10 @@ class Sign extends Component {
             <div className="container">
               <div class="row ">
                 <div class="col login-sec">
-                  <h2 class="text-center">Lital Login </h2>
+                  <h1 class="text-center" className='titles'>Lital Login </h1>
                   <form class="login-form">
                     <div class="form-group">
-                      <label for="exampleInputEmail1" class="text-uppercase">EMail</label>
+                      <label for="exampleInputEmail1" class="text-uppercase" >Email</label>
                       <input type="email" class="form-control" placeholder="VOTRE EMAIL ICI" onChange={(e) => this.setState({ address: e.target.value })} />
 
                     </div>

@@ -6,6 +6,8 @@ import { Pagination } from "../composant";
 import { Sidebar } from "../composant";
 import {getallhistoriquefromapi ,changestatehistorique,filteraction,filtercolor,Filterdate} from '../../action/historiquaction'
 import Historiqueitem from './historiqueitem'
+
+
 let tabcolor = []
 let tabdate = []
  function Historiquecontainer(props) {
@@ -131,50 +133,50 @@ let tabdate = []
 
         <>
         <br/><br/><br/>
-     <select>
+     {/* <select>
        <option style={{backgroundColor:"red"}}>1</option>
        <option>2</option>
-     </select>
+     </select> */}
   <Navbar toggleMenu={setIsOpened} />
   <Background setIsOpened={setIsOpened} show={isOpened} />
   <Sidebar show={isOpened} setIsOpened={setIsOpened} />
   <div className="Content">
-  <h3>Historique Letal</h3>
+ <strong> <h1 className='title'>Historique Letal</h1></strong>
   <div className="">
     <div className="dispalyflexbettwen">
 
-    <div className="col-xs-12 box_change_pagelimit">
+    <div className="col-xs-12 box_change_pagelimit" className='select'>
     Select affichage
            <select
         className="form-control"
         value={state.pageLimit}
         onChange={e =>setState({ pageLimit: parseInt(e.target.value) })
         }
-      >
-        <option value={5}>5</option>
-        <option value={10}>10</option>
-        <option value={25}>25</option>
-        <option value={50}>50</option>
-        <option value={100}>100</option>
+      className='select' >
+        <option className='select' value={5}>5</option>
+        <option className='select'value={10}>10</option>
+        <option  className='select' value={25}>25</option>
+        <option  className='select' value={50}>50</option>
+        <option  className='select' value={100}>100</option>
       </select>
     </div>
-    <div className="col-xs-12 box_change_pagelimit">
+    <div className="col-xs-12 box_change_pagelimit" className="select">
  Select Action
         <select
      className="form-control"
      value={filter_key}
      onChange={changestate}
-   > 
-      <option value=""></option>
-      <option value="Tous">TOUS</option>
-     <option value="Ajouter">Ajouter</option>
-     <option value="Modifier">Modifier</option>
-     <option value="suprimer">suprimer</option>
-     <option value="commentaire">ajouter comentaire</option>
+    > 
+      <option className='select' value=""></option>
+      <option  className='select' value="Tous">TOUS</option>
+     <option  className='select' value="Ajouter">Ajouter</option>
+     <option  className='select' value="Modifier">Modifier</option>
+     <option className='select' value="suprimer">suprimer</option>
+     <option  className='select' value="commentaire">ajouter comentaire</option>
    </select>
-   <select   onChange={filtercolor} >
-   <option value="couleur"> couleur</option>
-   <option value="">all </option>
+   <select className='select'  onChange={filtercolor} >
+   <option className='select' value="couleur"> couleur</option>
+   <option className='select' value="">all </option>
     {tabcolor.map((item, key) =>   item ?
       <option key={key} value={item} type="color"  ref={select} id="mohamed">{item} </option> : null
     )
@@ -185,7 +187,7 @@ let tabdate = []
 
 </select>
 
- <select onChange={filterdate} >
+ <select  className='select' onChange={filterdate} >
 <option value="">date</option>
 <option value="">all</option>
 {tabdate.map((item,key) => <option key={key} value={item}>{item}</option>)}
@@ -200,10 +202,10 @@ let tabdate = []
  </div>
   </div>
   <span class="ui input">
-  <input type="text" placeholder="user,type,prix,color,REF"    onChange={(e) => onchange(e)}></input><button className="ui inverted primary button colorwhitee" onClick={recherche}>Recherche</button>
+  <input type="text" placeholder="user,type,prix,color,REF"  className='input'  onChange={(e) => onchange(e)}></input><button className="ui brown button " onClick={recherche}>Rechercher</button>
 </span>
 
-  <table class="ui blue table">
+  <table class="table">
    <thead>
      <tr><th>Id</th>
        <th>Nom user</th>
@@ -222,12 +224,12 @@ let tabdate = []
     </tbody>
     </table>
     <div className="col-xs-12 box_pagination_info text-right">
-    <p>
+    <p className='title'>
     Nombre d'action :   {props.hist.length}  Page {state.currentPage}/{state.totalPages}
     </p>
      </div>
      <div className="col-xs-12 dispalyflexbettwen">
-    <Pagination
+    <Pagination 
       totalRecords={props.hist.length}
       pageLimit={state.pageLimit || 5}
       initialPage={1}

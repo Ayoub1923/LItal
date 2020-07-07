@@ -50,7 +50,7 @@ mesure:null
   }, [])
 function unmout()
 {
-  contenu.current.innerHTML= "<div><h1> Votre Donner A eté ajouter  avec Succeé vous pouvez consulter votre Liste de produit<h1></div>"
+  contenu.current.innerHTML= "<div className='title'><h1> Votre Donner A eté ajouter  avec Succeé vous pouvez consulter votre Liste de produit<h1></div>"
 }
 
   function show() {

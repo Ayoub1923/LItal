@@ -67,16 +67,16 @@ function Allproduct(props) {
       <Background setIsOpened={setIsOpened} show={isOpened} />
       <Sidebar show={isOpened} setIsOpened={setIsOpened} />
       <div className="Content">
-        <h3>Gestion des Produit Lital</h3>
+       <strong> <h1 className='title'>Gestion des Produit Lital</h1></strong>
         <div className="row dispalyflexbettwen">
-          <div className="col-xs-12 box_change_pagelimit">
+          <div className="col-xs-12 box_change_pagelimit"  className='select'>
             Select affichage
                  <select
               className="form-control"
               value={state.pageLimit}
               onChange={e =>setState({ pageLimit: parseInt(e.target.value) })
               }
-             >
+              className='select'>
               <option value={5}>5</option>
               <option value={10}>10</option>
               <option value={25}>25</option>
@@ -85,7 +85,7 @@ function Allproduct(props) {
             </select>
 
           </div>
-          <div className="col-xs-12 box_change_pagelimit">
+          <div className="col-xs-12 box_change_pagelimit"  className='select'>
       Select Quantiter
            <select
         className="form-control"
@@ -104,9 +104,9 @@ function Allproduct(props) {
     </div>
         </div>
         <span class="ui input">
-        <input type="text"  className=" col-md-4"   placeholder="name,type,categorie,prix,couleur" onChange={(e) => setinput(e.target.value)}></input><button className="ui inverted primary button colorwhitee" onClick={recherche}>Recherche</button>
+        <input type="text"  className=" col-md-4"   placeholder="name,type,categorie,prix,couleur" onChange={(e) => setinput(e.target.value)}></input><button className="ui brown button " onClick={recherche}>Recherche</button>
         </span>
-        <table class="ui blue table">
+        <table class=" table">
           <thead>
             <tr><th>id</th>
               <th>Nom</th>
@@ -122,11 +122,11 @@ function Allproduct(props) {
           </tbody>
         </table>
         <div className="col-xs-12 box_pagination_info text-right">
-          <p>
+          <p className='title'>
           Nombre de produit: {props.prod.product.length} page  {state.currentPage}/{state.totalPages}
           </p>
         </div>
-        <div className="col-xs-12 dispalyflexbettwen">
+        <div className="col-xs-12 dispalyflexbettwen" className='title'>
           <Pagination
             totalRecords={props.prod.product.length}
             pageLimit={state.pageLimit || 5}
@@ -138,7 +138,7 @@ function Allproduct(props) {
         </div>
        
       </div>
-      <p className="marginletf30"><a href="/Addprodact">  <button className="ui inverted primary button ">Ajouter Nouvaux produit</button></a></p>
+      <p className="marginletf30"><a href="/Addprodact">  <button className="ui brown button ">Ajouter Nouvaux produit</button></a></p>
   
      
           </div>

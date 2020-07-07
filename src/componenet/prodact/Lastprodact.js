@@ -52,10 +52,10 @@ function Lastprodact(props) {
           <Modal show={valeur} onHide={handleClose} dialogClassName="modal-90w"
             aria-labelledby="example-custom-modal-styling-title" size="xl">
             <Modal.Header closeButton>
-              <Modal.Title>Produit id:  {el.id}</Modal.Title>
+              <Modal.Title className='title'>Produit id:  {el.id}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <table class="ui blue table">
+              <table class=" table">
                 <thead>
                   <tr>
                     <th>Id</th>
@@ -116,14 +116,14 @@ function Lastprodact(props) {
   rowsPerPage = data.slice(state.startIndex, state.endIndex + 1);
   return (
     <>
-    <div className="col-md-2">
+    <div className="col-md-3 select">
     Select affichage
     <select
       className="form-control"
       value={state.pageLimit}
       onChange={e => setState({ pageLimit: parseInt(e.target.value) })
       }
-    >
+   className='select' >
       <option value={5}>5</option>
       <option value={10}>10</option>
       <option value={25}>25</option>
@@ -133,7 +133,7 @@ function Lastprodact(props) {
   </div>
   <br/>
     <div>
-      <table class="ui blue table">
+      <table class=" table">
         <thead>
           {
             console.log("data", state)}

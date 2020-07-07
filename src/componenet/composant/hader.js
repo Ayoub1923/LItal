@@ -13,10 +13,12 @@ const NavWrapper = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  height: 60px;
+  height: 75px;
   padding: 0 1rem;
-  background-color: #a59891;
+  background-color: #f5f4f3;
   z-index : 10;
+  border-bottom: 4px solid #dad5d2;
+
 `;
 
 const BurgerMenu = styled.div`
@@ -49,7 +51,7 @@ const Navbar = (props) => {
   const logout = () => {
     let x =["","","","","","",""]
     props.updatesessiondate(x)
-    alert('byby' )
+    alert('à bientôt' )
 
   
    
@@ -68,7 +70,7 @@ const Navbar = (props) => {
       </BurgerMenu>
       <img src={logo} alt="logo" width="100px"></img>
       <div width ="300px">
-      <NavLink to ='/'> <p style={{color:"#333"}}>{props.users[4] ? <img src={props.users[4] } alt="imageuser" width="60px"/> : null }  {props.users[0] + " " + props.users[1]  } <button class="ui inverted button" onClick={logout}>Log out</button></p>  </NavLink>
+      <NavLink to ='/'> <p style={{color:"#333"}}>{props.users[4] ? <img className='image' src={props.users[4] } alt="imageuser" width="60px "/> : null }  {props.users[0] + " " + props.users[1]  } <button class="ui brown button" onClick={logout}>Log out</button></p>  </NavLink>
       </div>
     </NavWrapper>
   );

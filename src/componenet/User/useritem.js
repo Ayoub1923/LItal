@@ -42,10 +42,10 @@ class Useritem extends Component {
         <Modal show={this.state.show} onHide={this.handleClose} dialogClassName="modal-90w"
           aria-labelledby="example-custom-modal-styling-title" size="xl">
           <Modal.Header closeButton>
-            <Modal.Title>pressone Matricule  {donner.id}</Modal.Title>
+            <Modal.Title className='title'>presone Matricule  {donner.id}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <table class="ui blue table">
+            <table class="table">
               <thead>
                 <tr><th>id</th>
                   <th>First_name</th>

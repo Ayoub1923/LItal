@@ -1,0 +1,4 @@
+{
+"mongoURI":"mongodb+srv://chaima:chaima@cluster0.4ha81.mongodb.net/lital?retryWrites=true&w=majority",
+"ok":"bonjour"
+}

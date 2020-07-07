@@ -79,7 +79,7 @@ function AddUsers(props) {
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <h1 className="btncentre">Add user</h1>
+       <strong><h1 className="title">Add user</h1></strong> 
         <div className="contenaire centret"><br />
           <div className="ui inverted segment">
             <div className="ui form inverted">
@@ -128,7 +128,7 @@ function AddUsers(props) {
               </div>
               <div class="field">
                 <br></br>
-                 <button className="ui inverted primary button col-md-4 colorwhite" onClick={() => show()}>Add user</button>
+                 <button className="ui brown button" onClick={() => show()}>Add user</button>
               </div>
             </div>
           </div>
