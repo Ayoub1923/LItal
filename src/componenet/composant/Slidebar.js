@@ -9,11 +9,11 @@ import { NavLink } from 'react-router-dom'
 
 const Sidebar = ({ show, setIsOpened,users,getsessionstate }) => {
     useEffect(() => {
- getsessionstate()
+ //getsessionstate()
     }, [])
     return (
         <>
-        { users[5] !="" ?
+        { localStorage.getItem("role")!="" ?
         <>
         < SidebarStyled show = { show ? 1 : 0 } className="bagroundmenu" >
         <SidebarWrapper>
@@ -25,7 +25,7 @@ const Sidebar = ({ show, setIsOpened,users,getsessionstate }) => {
         < span/>
         </CloseIcon> 
          <div className = "paddingmenu" > <NavLink to = "/Home" exact activeClassName="active" > < Linked >  👜 &emsp; Derniere Produit</Linked > </NavLink> </div >
-        {users[5] ==="admin" ? 
+        { localStorage.getItem("role")==="admin" ? 
         <div className = "paddingmenu" ><NavLink to = "/User" exact activeClassName="active" > < Linked > < i class = "fa fa-users"
         aria-hidden = "true" > </i> &emsp; Utilisateur</Linked > </NavLink> </div > 
         : null }
@@ -33,7 +33,7 @@ const Sidebar = ({ show, setIsOpened,users,getsessionstate }) => {
         <NavLink to = "/Prodact" exact activeClassName="active" > < Linked > < i class = "fa fa-shopping-bag"aria-hidden = "true" > </i>&emsp;
         Produit </Linked></NavLink >
         </div> <div className = "paddingmenu" >
-            {users[5] ==="admin" ? 
+            { localStorage.getItem("role") ==="admin" ? 
         <a href = "/Historique" exact activeClassName="active" > < Linked > < i class = "fa fa-history"aria-hidden = "true" > </i>&emsp;Historique </Linked></a > : null }
         </div>
 

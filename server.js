@@ -2,8 +2,16 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var multer = require('multer')
+var mangoos = require('./backend/config/configdb')
 var nodemailer = require('nodemailer');
 var cors = require('cors');
+const morgan=require("morgan")
+const User = require('./backend/model/user')
+/* root */
+const users = require("./backend/root/userroot")
+const historique = require("./backend/root/historique")
+const ListeProduit=require("./backend/root/listedeproduit");
+
 let transport = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 587,
@@ -13,24 +21,16 @@ let transport = nodemailer.createTransport({
       pass:'ou_2s_ma200'
   }
 });
-/*let transport = {
-  //host: 'smtp.gmail.com',
-  service: 'Gmail',
-  secure: false,
-  auth: {
-    user: "oussamahassanisimplon@gmail.com",
-    pass: "ou_2s_ma200",
-    port:465
-  }
-}*/
-app.use(cors())
+
+//app.use(morgan("dev"))
 app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({ extended:false }))
-
+//app.use(express.urlencoded({ extended: false }))
+//app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors())
 
 let x = Date.now()
 let code = x.toString().substring(0,4)
-
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, 'public/imageuplod')
@@ -42,10 +42,11 @@ var storage = multer.diskStorage({
   
   var upload = multer({ storage: storage }).array('file')
   
-app.get('/',function(req,res){
+app.get('/',function(req,res, next){
     return res.send('Hello Server')
+   
 })
-app.post('/upload',function(req, res) {
+app.post('/upload',function(req, res , next) {
     
     upload(req, res, function (err) {
      
@@ -60,6 +61,7 @@ app.post('/upload',function(req, res) {
         return res.status(200).send(req.file)
         // Everything went fine.
       })
+  
 });
 //let transporter = nodemailer.createTransport(transport)
 
@@ -71,16 +73,19 @@ transport.verify((error, success) => {
   }
 });
 
-app.post('/send', (req, res, next) => {
+app.post('/send',async (req, res, next) => {
+try{
+  let email = req.body.email
+  console.log(email)
+    const user = await User.findOne({ email: email }).lean()
+   if (user)
+   {
+     let message=user.email + " " + users.password
+  let content = `name: ${user.first_name} \n email: ${user.email} \n donner: ${message} `
 
-  let names =  req.body.name
-  let email =  req.body.email
-  let message = req.body.messsage
-  let content = `name: ${names} \n email: ${email} \n donner: ${message} `
-  console.log(req, req.body.messsage)
   let mail = {
-    from: names,
-    to: email,  
+    from: "oussamahassanisimplon@gmail.com",
+    to: user.email,  
     subject: 'Rest password',
     text: content
   }
@@ -96,8 +101,27 @@ app.post('/send', (req, res, next) => {
       })
     }
   })
+}
+}
+catch(error)
+{
+console.log(error)
+}
+//next()
 }) 
 
+app.get('/allpost',function(req , res) {
+
+  res.json({
+  posts:[
+  {title:'first post'},
+  {title:'first post'}
+  ]
+  })}
+)
+app.use("/app",ListeProduit);
+app.use("/app",users);
+app.use("/app",historique );
 app.listen(8000, function() {
     console.log('App running on port 8000');
 });

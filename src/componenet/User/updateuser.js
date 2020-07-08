@@ -6,6 +6,7 @@ import { Navbar } from "../composant";
 import { Background } from "../composant";
 import { Sidebar } from "../composant";
 class Updateuser extends Component {
+   contenu = React.createRef()
     state = {
         isOpened: false,
         image: 'https://semantic-ui.com/images/avatar/large/steve.jpg',
@@ -22,10 +23,11 @@ alertref = React.createRef()
 
         let id = this.props.users.iduser;
         let x = this.props.users.user
-        let user = x.filter(el => el.id == id)
+        let user = x.filter(el => el._id == id)
         if (user.length > 0) {
-            this.setState(({ first_name: user[0].first_name, last_name: user[0].last_name, email: user[0].email, password: user[0].password, image: user[0].image, id: id }))
-            console.log(user, this.state.first_name)
+            this.setState(({ first_name: user[0].first_name, last_name: user[0].last_name, email: user[0].email, password: user[0].password, image: user[0].image, id: id,  ocuperpost: user[0].posteOcuper,role : user[0].role
+}))
+            console.log(user)
         }
 
     }
@@ -33,16 +35,33 @@ alertref = React.createRef()
     changer = (x) => {
         this.setState({ isOpened: x })
     }
+    update  = () => {
+        let obj = {
+        "id" : this.state.id,
+       "first_name" : this.state.first_name,
+       "last_name": this.state.last_name,
+       "password":this.state.password,
+       "image":this.state.image,
+       "ocuperpost":this.state.ocuperpost,
+       "role":this.state.role,
+
+        }
+    console.log("id est " , this.state.id)
+        this.props.update(obj)
+  this.contenu.current.innerHTML= "<div><h1> Votre Donner A eté modifier avec Succeé<h1></div>"
+    }
+
+    
     render() {
-        const { update } = this.props;
-        const { first_name, last_name, email, password, image, id } = this.state;
-        console.log(id)
+       // const { update } = this.props;
+        const { first_name, last_name, email, password, image,ocuperpost,role, id } = this.state;
+       
         return (
             <>
                 <Navbar toggleMenu={(x) => this.changer(x)} />
                 <Background setIsOpened={this.state.isOpened} show={this.state.isOpened} />
                 <Sidebar show={this.state.isOpened} setIsOpened={(x) => this.changer(x)} />
-                <div className="Content">
+                <div className="Content" ref={this.contenu}>
                     <div ref={this.alertref} class="alert 
 alert-warning alert-dismissible fade show"
                         role="alert">
@@ -56,7 +75,7 @@ remplire tous les champs obligatoire
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <h3 className="centre-item"> update user with id {this.state.id}</h3>
+                <h3 className="centre-item"> update user with id {id}</h3>
                 <div className="contenaire ">
                     <div className=" ui inverted segment">
                         <div className="ui form inverted">
@@ -77,11 +96,13 @@ remplire tous les champs obligatoire
                             <div class="two fields">
                                 <div class="field">
                                     <p className="flexevenly"><label >Post</label> <span className="rouge">*</span></p>
-                                    <input type="text" value={this.state.role} onChange={(e) => this.setState({ post: e.target.value })}></input><br /><br />
+                                    <input type="text" value={this.state.ocuperpost} onChange={(e) => this.setState({ ocuperpost: e.target.value })}></input><br /><br />
                                 </div>
                                 <div class="field">
                                    <p className="flexevenly"><label >Role</label> <span className="rouge">*</span></p> 
-                                    <select id="role" name="role" onChange={(e) => this.setState({ role: e.target.value })}>
+                                   {console.log("mon role est", role)}
+                                    <select id="role" name="role" onChange={(e) => this.setState({ role: e.target.value })}  >
+                                       <option value={role}>{role}</option>
                                         <option value="admin">admin</option>
                                         <option value="moderateur">Moderateur</option>
                                         <option value="Autre">Autre</option>
@@ -96,7 +117,7 @@ remplire tous les champs obligatoire
                                 <label class="field">Avatar</label>
                                 <input class="field" type="text" value={this.state.image} ></input>
                             </div>
-                            <NavLink to="/user" ><p> <button className="ui inverted yellow  button centre-item " onClick={() => update(first_name, last_name, email, password, image, id)}>Update USER</button></p></NavLink>
+                            <p> <button className="ui inverted yellow  button centre-item " onClick={() => this.update()}>Update USER</button></p>
                         </div>
                     </div>
                 </div>
@@ -111,7 +132,7 @@ const mapStateToProps = (state) => ({
 })
 const mapDispatchToProps = (dispatch) => ({
     getusersFromApi: () => dispatch(getusersFromApi()),
-    update: (first_name, last_name, email, password, image, id) => dispatch(updatedate(first_name, last_name, email, password, image, id))
+    update: (obj) => dispatch(updatedate(obj))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Updateuser);

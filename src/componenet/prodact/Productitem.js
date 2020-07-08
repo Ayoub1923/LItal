@@ -19,13 +19,13 @@ let message = "n`ont pas indiquer "
   })
   .then((okpressed) => {
     if (okpressed) {
-      props.delateproduct(props.product.id)
+      props.delateproduct(props.product._id)
       let action = "produit suprimer"
       let x  = { name: props.product.name,
         type:props.product.type,
-        collection:props.product.collection,
+        collct:props.product.collct,
         marque:props.product.marque,
-        reference:props.product.reference,
+        ref:props.product.ref,
         image: props.product.image,
         prix:props.product.prix,
         quantite:props.product.quantite,
@@ -62,18 +62,18 @@ let message = "n`ont pas indiquer "
     return (
         <>
 <tr style={{verticalAlign: "middle"}}>
-     <td>{props.product.id}</td>
+     <td>{props.product._id.slice(20,24)}</td>
      <td>{props.product.name ?props.product.name :message}</td>
-     <td>{props.product.reference ?props.product.reference : message}</td>
+     <td>{props.product.ref?props.product.ref: message}</td>
    
      <td ><input type="color" value={props.product.couleur } disabled title={props.product.couleur}/></td>
      <td>{props.product.quantite}</td>
-     <td className="alignitem"><img src= {props.product.image} alt={props.product.name + props.product.id} width="100px"/></td>
+     <td className="alignitem"><img src= {props.product.image} alt={props.product.name + props.product._id} width="100px"/></td>
     
-     <td><a href={'comentaire?' + props.product.id}><i class="facebook messenger icon"></i>{x.length}</a></td>
+     <td><a href={'comentaire?' + props.product._id}><i class="facebook messenger icon"></i>{x.length}</a></td>
      <td > <div className="flex-bettwen"><button onClick={()=>delate() } class="bagroundcolortransparent colorred"><i class="trash icon"></i></button>{" "}
 
-<a href={'/update-produit?' + props.product.id}> <button onClick={() => update()} class=" bagroundcolortransparent coloryellow" ><i class="edit icon"></i>
+<a href={'/update-produit?' + props.product._id}> <button onClick={() => update()} class=" bagroundcolortransparent coloryellow" ><i class="edit icon"></i>
 </button> </a>  <button onClick={() => shows()} class="bagroundcolortransparent vertcolor" ><i class="eye icon"></i></button></div> </td>
  </tr>
 
@@ -102,9 +102,9 @@ let message = "n`ont pas indiquer "
        <tr>
 <td>{props.product.name}</td>
 <td>{props.product.type}</td> 
-<td>{props.product.collection}</td>
+<td>{props.product.collct}</td>
 <td>{props.product.marque}</td>
-<td>{props.product.reference}</td>
+<td>{props.product.ref}</td>
 <td className="alignitem"><img src={props.product.image}  alt={"produit" + props.product.name + "id " + props.product.id} width="100px"/></td>
 <td>{props.product.prix}</td>
 

@@ -18,10 +18,11 @@ function Lastprodact(props) {
     endIndex: "",
   })
   useEffect(() => {
-    Axios.get(URL + "ListeProduit")
+    Axios.get(URL + "app/Allproduct")
       .then(res => {
       //  if (res.data.length > 15)
-          setdata([...res.data].reverse().slice(0, 14))
+          setdata([...res.data.produit].reverse().slice(0, 14))
+          console.log("pk " , res)
      //   else
       //    setdata([...res.data].reverse())
       })

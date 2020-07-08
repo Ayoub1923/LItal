@@ -20,9 +20,9 @@ const [statevalue, setstatevalue] = useState({
 
    name : null,
      type : null,
-Collection : null,
+collct : null,
 marque: null,
-reference:null,
+ref:null,
 image:null,
 prix:null,
 quantiter:null,
@@ -85,9 +85,9 @@ function unmout()
      props.postnewproduct(x)
  let data  = { name: x[0],
  type:x[1],
- collection:x[2],
+ collect:x[2],
  marque:x[3],
- reference:x[4],
+ ref:x[4],
  image: x[5],
  prix:x[6],
  quantite:x[7],
@@ -219,7 +219,7 @@ swal({
                 </div>
                 <div class="field">
                   <label> Collection</label>
-                  <p> <input  type="text" placeholder="Collection" name="Collection" onChange={updateField} /></p>
+                  <p> <input  type="text" placeholder="collection" name="collct" onChange={updateField} /></p>
                 </div>
               </div>
               <div className="three fields">
@@ -229,7 +229,7 @@ swal({
                 </div>
                 <div class="field">
                   <label>Reference  <span className="rouge">*</span></label>
-                  <p>  <input ref={e => refinput.reference = e} name="reference"  onChange={updateField}   type="text" placeholder="Reference" required /></p>
+                  <p>  <input ref={e => refinput.reference = e} name="ref"  onChange={updateField}   type="text" placeholder="Reference" required /></p>
                 </div>
                 <div class="field">
                   <label>image</label>
